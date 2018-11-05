@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const SELENIUM_OPTS = {
     version: '3.13.0',
     baseURL: 'https://selenium-release.storage.googleapis.com',

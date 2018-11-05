@@ -2,23 +2,32 @@
 
 const { Given, Then, When } = require('cucumber');
 
-Given(/^I open "([^"]*)" website$/, function(envName) {
-    const envMap = [
+Given(/^I open "([^"]*)" website$/, function(websiteName) {
+    const websiteMap = [
         {
             name: 'google',
-            url: 'https://www.google.com'
+            url: 'https://www.google.com',
+            sampleElement: '//*[@id="tsf"]/div[2]/div[3]/center/input[1]'
         }
     ];
 
-    const url = envMap.find(e => e.name === envName).url;
+    const website = websiteMap.find(e => e.name === websiteName);
 
-    browser.url(url);
+    should.exist(website);
+
+    browser.url(website.url);
+
+    this.scenarioContext.sampleElement = website.sampleElement;
 });
 
-When(/^I get the text value of the "([^"]*)" element$/, function(selector) {
-    this.scenarioContext.textElementValue = browser.getText(selector);
+When(/^I get the value of the sample element$/, function() {
+    should.exist(this.scenarioContext.sampleElement);
+
+    this.scenarioContext.textElementValue = browser.getValue(this.scenarioContext.sampleElement);
 });
 
 Then(/^I verify that the expected value equals "([^"]*)"$/, function(expectedValue) {
+    should.exist(this.scenarioContext.textElementValue);
+
     this.scenarioContext.textElementValue.should.equal(expectedValue);
 });
