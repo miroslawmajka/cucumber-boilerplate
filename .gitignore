@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+# JetBrains and VS Code
+.idea
+*.iml
+.vscode
+
+!target/logs/README.md
