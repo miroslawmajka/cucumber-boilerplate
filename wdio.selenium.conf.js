@@ -1,12 +1,17 @@
+const LOGS_DIRECTORY = './target/logs';
+const SCREENSHOTS_DIRECTORY = './target/screenshots';
+const HALF_MINUTE = 30000;
+
 const SELENIUM_OPTS = {
-    version: '3.13.0',
+    version: '3.141.5',
     baseURL: 'https://selenium-release.storage.googleapis.com',
     drivers: {
         chrome: {
-            version: '2.41',
+            version: '2.43',
             baseURL: 'https://chromedriver.storage.googleapis.com'
         }
-    }
+    },
+    logger: console.log
 };
 
 exports.config = {
@@ -14,30 +19,30 @@ exports.config = {
     debug: false,
     coloredLogs: true,
     screenshotOnReject: true,
-    waitforTimeout: 10000,
-    connectionRetryTimeout: 120000,
-    connectionRetryCount: 3,
-    logLevel: 'verbose',
-    logOutput: './target/logs',
-    screenshotPath: './target/screenshots',
     specs: ['./features/*.feature'],
+    logLevel: 'verbose',
+    logOutput: LOGS_DIRECTORY,
+    reporters: ['spec', 'dot'],
+    screenshotPath: SCREENSHOTS_DIRECTORY,
+    waitforTimeout: HALF_MINUTE,
+    connectionRetryTimeout: HALF_MINUTE * 2,
+    connectionRetryCount: 3,
     services: ['selenium-standalone'],
-    seleniumLogs: './target/logs',
+    seleniumLogs: LOGS_DIRECTORY,
     seleniumArgs: SELENIUM_OPTS,
     seleniumInstallArgs: SELENIUM_OPTS,
     capabilities: [
         {
-            browserName: 'Chrome',
+            browserName: 'chrome',
             chromeOptions: { args: ['disable-infobars'] },
             maxInstances: 1
         }
     ],
-    reporters: ['spec', 'dot'],
     framework: 'cucumber',
     cucumberOpts: {
         format: ['pretty'],
         colors: true,
-        timeout: 60000,
+        timeout: HALF_MINUTE * 10,
         backtrace: true,
         require: [
             './features/support/*.js',
@@ -45,10 +50,13 @@ exports.config = {
         ]
     },
     before: () => {
+        console.log('Running WebdriverIO using Selenium...');
+
         const chai = require('chai');
 
         global.expect = chai.expect;
         global.assert = chai.assert;
         global.should = chai.should();
-    }
+    },
+    onComplete: exitCode => console.log(`All WebdriverIO workers complete with "${exitCode}" exit code`)
 };

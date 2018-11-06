@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.selenium.conf.js"
+    "test": "./node_modules/.bin/wdio wdio.selenium.conf.js",
+    "lint": "gulp"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,9 @@
     "wdio-selenium-standalone-service": "0.0.10",
     "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.14.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^5.0.0"
   }
 }

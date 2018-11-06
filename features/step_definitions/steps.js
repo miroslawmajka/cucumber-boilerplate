@@ -2,32 +2,39 @@
 
 const { Given, Then, When } = require('cucumber');
 
+const Page = require('../../page-objects/page');
+const GooglePage = require('../../page-objects/google-page');
+const GithubPage = require('../../page-objects/github-page');
+const googlePage = new GooglePage();
+const githubPage = new GithubPage();
+
 Given(/^I open "([^"]*)" website$/, function(websiteName) {
     const websiteMap = [
-        {
-            name: 'google',
-            url: 'https://www.google.com',
-            sampleElement: '//*[@id="tsf"]/div[2]/div[3]/center/input[1]'
-        }
+        googlePage,
+        githubPage
     ];
 
-    const website = websiteMap.find(e => e.name === websiteName);
+    const website = websiteMap.find(e => e.getPageName() === websiteName);
 
     should.exist(website);
 
-    browser.url(website.url);
+    website.navigate();
 
-    this.scenarioContext.sampleElement = website.sampleElement;
+    this.scenarioContext.sampleElement = website.getSampleElement();
 });
 
-When(/^I get the value of the sample element$/, function() {
-    should.exist(this.scenarioContext.sampleElement);
+When(/^I get the text value of the sample element$/, function() {
+    const element = this.scenarioContext.sampleElement;
 
-    this.scenarioContext.textElementValue = browser.getValue(this.scenarioContext.sampleElement);
+    should.exist(element);
+
+    this.scenarioContext.textElementValue = Page.getElementText(element);
 });
 
-Then(/^I verify that the expected value equals "([^"]*)"$/, function(expectedValue) {
-    should.exist(this.scenarioContext.textElementValue);
+Then(/^I verify that the expected text value equals "([^"]*)"$/, function(expectedValue) {
+    const elementValue = this.scenarioContext.textElementValue;
 
-    this.scenarioContext.textElementValue.should.equal(expectedValue);
+    should.exist(elementValue);
+
+    elementValue.should.equal(expectedValue);
 });
