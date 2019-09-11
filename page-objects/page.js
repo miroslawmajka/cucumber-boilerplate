@@ -5,13 +5,15 @@ class Page {
 
     getPageName() { }
     getPageUrl() { }
-    getSampleElement() { }
+    getSampleElement() { }  
 
     static getElementText(element) {
-        browser.waitForExist(element);
-        browser.waitForVisible(element);
+        const el = $(element);
 
-        return browser.getText(element);
+        el.waitForExist(undefined);
+        el.waitForDisplayed(undefined);
+
+        return el.getText();
     }
 }
 

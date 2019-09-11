@@ -15,26 +15,28 @@ const SELENIUM_OPTS = {
 };
 
 exports.config = {
+    runner: 'local',
     sync: true,
     debug: false,
     coloredLogs: true,
     screenshotOnReject: true,
     specs: ['./features/*.feature'],
-    logLevel: 'verbose',
+    // logLevel: 'verbose',
     logOutput: LOGS_DIRECTORY,
-    reporters: ['spec', 'dot'],
+    reporters: ['spec'],
     screenshotPath: SCREENSHOTS_DIRECTORY,
-    waitforTimeout: HALF_MINUTE,
+    waitforTimeout: HALF_MINUTE / 6,
     connectionRetryTimeout: HALF_MINUTE * 2,
     connectionRetryCount: 3,
     services: ['selenium-standalone'],
     seleniumLogs: LOGS_DIRECTORY,
-    seleniumArgs: SELENIUM_OPTS,
-    seleniumInstallArgs: SELENIUM_OPTS,
+    // seleniumArgs: SELENIUM_OPTS,
+    // seleniumInstallArgs: SELENIUM_OPTS,
+    maxInstances: 10,
     capabilities: [
         {
             browserName: 'chrome',
-            chromeOptions: { args: ['disable-infobars'] },
+            // chromeOptions: { args: ['disable-infobars'] },
             maxInstances: 1
         }
     ],
