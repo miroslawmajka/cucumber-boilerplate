@@ -1,14 +1,14 @@
-# cucumber-boilerplate
+# Cucumber Boilerplate
+
 Node.js Cucumber WebdriverIO Selenium Boilerplate
 
-
-Travis CI Build Status: [![Build Status](https://travis-ci.org/miroslawmajka/cucumber-boilerplate.svg?branch=master)](https://travis-ci.org/miroslawmajka/cucumber-boilerplate)
+Circle CI Build Status: [![CircleCI](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate.svg?style=svg)](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate)
 
 # Usage
 
-Open your favourite CLI and run the following commands:
+Open your favourite CLI and run the following commands to restore dependencies, lint the JavaScript and run the automated selenium tests:
 ```
 npm install
-gulp
+npm run lint
 npm test
 ```
