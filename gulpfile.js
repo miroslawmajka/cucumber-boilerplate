@@ -1,11 +1,10 @@
-const gulp = require('gulp');
-const eslint = require('gulp-eslint');
+import { task, src } from 'gulp';
+import eslint, { format, failAfterError } from 'gulp-eslint';
 
-gulp.task('default', () => gulp
-    .src(['**/*.js'])
+task('default', () => src(['**/*.js'])
     .pipe(eslint())
-    .pipe(eslint.format('stylish'))
-    .pipe(eslint.failAfterError()))
+    .pipe(format('stylish'))
+    .pipe(failAfterError()))
     .once('error', err => {
         console.error('Gulp task failed:');
         console.error(err);

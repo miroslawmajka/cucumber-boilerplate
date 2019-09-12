@@ -2,17 +2,17 @@ const LOGS_DIRECTORY = './target/logs';
 const SCREENSHOTS_DIRECTORY = './target/screenshots';
 const HALF_MINUTE = 30000;
 
-const SELENIUM_OPTS = {
-    version: '3.141.5',
-    baseURL: 'https://selenium-release.storage.googleapis.com',
-    drivers: {
-        chrome: {
-            version: '2.43',
-            baseURL: 'https://chromedriver.storage.googleapis.com'
-        }
-    },
-    logger: console.log
-};
+// const SELENIUM_OPTS = {
+//     version: '3.141.5',
+//     baseURL: 'https://selenium-release.storage.googleapis.com',
+//     drivers: {
+//         chrome: {
+//             version: '2.43',
+//             baseURL: 'https://chromedriver.storage.googleapis.com'
+//         }
+//     },
+//     logger: console.log
+// };
 
 exports.config = {
     runner: 'local',
