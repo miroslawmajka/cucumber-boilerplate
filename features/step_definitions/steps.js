@@ -31,7 +31,7 @@ When(/^I get the text value of the sample element$/, function() {
     this.scenarioContext.textElementValue = Page.getElementText(element);
 });
 
-Then(/^I verify that the expected text value equals "([^"]*)"$/, function(expectedValue) {
+Then(/^The expected text value equals "([^"]*)"$/, function(expectedValue) {
     const elementValue = this.scenarioContext.textElementValue;
 
     should.exist(elementValue);
