@@ -1,61 +1,97 @@
 module.exports = {
-    'env': {
-        'node': true,
-        'es6': true,
-        'mocha': true,
-        'browser': true
+    env: {
+        node: true,
+        es6: true,
+        mocha: true,
+        browser: true
     },
-    'extends': 'eslint:recommended',
-    'parserOptions': {
-        'sourceType': 'module',
-        'ecmaVersion': 2017
+    extends: "eslint:recommended",
+    parserOptions: {
+        sourceType: "module",
+        ecmaVersion: 2017
     },
-    'rules': {
-        'no-unused-vars': [
-            'error',
+    rules: {
+        "no-undef": "off",
+        "no-var": "error",
+        "newline-before-return": "error",
+        "prefer-arrow-callback": "warn",
+        "no-console": "off",
+        "prefer-template": "error",
+        "no-unused-vars": [
+            "error",
             {
-                'args': 'none'
+                "args": "none"
             }
         ],
-        'indent': [
-            'error',
+        indent: [
+            "error",
             4,
             {
-                'SwitchCase': 1
+                "SwitchCase": 1
             }
         ],
-        'quotes': [
-            'error',
-            'single'
+        quotes: [
+            "error",
+            "double"
         ],
-        'semi': [
-            'error',
-            'always'
+        "quote-props": [
+            "error",
+            "as-needed"
         ],
-        'strict': [
-            'error',
-            'global'
+        semi: [
+            "error",
+            "always"
         ],
-        'arrow-parens': [
-            'error',
-            'as-needed'
+        strict: [
+            "error",
+            "global"
         ],
-        'comma-dangle': [
-            'error',
-            'never'
+        "arrow-parens": [
+            "error",
+            "as-needed"
         ],
-        'no-undef': 'off',
-        'no-var': 'error',
-        'newline-before-return': 'error',
-        'prefer-arrow-callback': 'warn',
-        'no-console': 'off',
-        'space-before-function-paren': [ 'error', 'never' ],
-        'object-curly-spacing': [ 'error', 'always' ],
-        'space-in-parens': ['error', 'never'],
-        'array-bracket-spacing': ['error', 'never'],
-        'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 0, 'maxBOF': 0 }],
-        'prefer-template': 'error',
-        'comma-spacing': [ 'error', { 'before': false, 'after': true } ],
-        'space-before-blocks': ['error', { 'functions': 'always', 'keywords': 'always', 'classes': 'always' }]
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "space-in-parens": [
+            "error",
+            "never"
+        ],
+        "array-bracket-spacing": [
+            "error",
+            "never"
+        ],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1,
+                "maxEOF": 0,
+                "maxBOF": 0
+            }
+        ],
+        "comma-spacing": [
+            "error",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "space-before-blocks": [
+            "error",
+            {
+                "functions": "always",
+                "keywords": "always",
+                "classes": "always"
+            }
+        ]
     }
 };

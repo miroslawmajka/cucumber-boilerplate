@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.selenium.conf.js",
-    "bs": "./node_modules/.bin/wdio wdio.browserstack.conf.js",
+    "test": "npm run test-chromedriver",
+    "test-chromedriver": "wdio wdio-configs/wdio.chromedriver.conf.js",
+    "test-browserstack": "wdio wdio-configs/wdio.browserstack.conf.js",
     "lint": "eslint --color ."
   },
   "repository": {
@@ -15,20 +16,22 @@
   "author": "",
   "license": "ISC",
   "homepage": "https://github.com/miroslawmajka/cucumber-boilerplate",
-  "dependencies": {
+  "devDependencies": {
     "@wdio/browserstack-service": "^5.12.5",
-    "@wdio/cli": "^5.12.5",
-    "@wdio/cucumber-framework": "^5.12.3",
-    "@wdio/local-runner": "^5.12.5",
-    "@wdio/selenium-standalone-service": "^5.12.1",
+    "@wdio/cli": "^5.13.0",
+    "@wdio/cucumber-framework": "^5.13.0",
+    "@wdio/junit-reporter": "^5.12.3",
+    "@wdio/local-runner": "^5.13.0",
     "@wdio/spec-reporter": "^5.12.1",
-    "@wdio/sync": "^5.12.3",
+    "@wdio/sync": "^5.13.0",
+    "browserstack-local": "^1.4.2",
     "chai": "^4.2.0",
+    "chromedriver": "^76.0.1",
     "cucumber": "^5.1.0",
     "dotenv": "^8.1.0",
-    "webdriverio": "^5.12.5"
-  },
-  "devDependencies": {
-    "eslint": "^6.3.0"
+    "eslint": "^6.4.0",
+    "moment": "^2.24.0",
+    "wdio-chromedriver-service": "^5.0.2",
+    "webdriverio": "^5.13.0"
   }
 }

@@ -1,6 +1,6 @@
 # Cucumber Boilerplate
 
-Node.js Cucumber WebdriverIO Selenium Boilerplate
+Node.js Cucumber WebdriverIO Chromedriver and BrowserStack Boilerplate
 
 Circle CI Build Status: [![CircleCI](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate.svg?style=svg)](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate)
 

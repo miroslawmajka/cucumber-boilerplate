@@ -1,10 +1,10 @@
 /* eslint-disable prefer-arrow-callback */
 
-const { Given, Then, When } = require('cucumber');
+const { Given, Then, When } = require("cucumber");
 
-const Page = require('../../page-objects/page');
-const GooglePage = require('../../page-objects/google-page');
-const GithubPage = require('../../page-objects/github-page');
+const Page = require("../../page-objects/page");
+const GooglePage = require("../../page-objects/google-page");
+const GithubPage = require("../../page-objects/github-page");
 const googlePage = new GooglePage();
 const githubPage = new GithubPage();
 
