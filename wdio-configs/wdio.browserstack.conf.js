@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const browserstackLocal = require("browserstack-local");
+const fs = require("fs");
 
 const wdioCommon = require("./wdio.common.conf");
 
@@ -19,7 +20,10 @@ exports.config = Object.assign({
     ],
     capabilities: [
         {
-            browserName: "chrome",
+            os: "OS X",
+            os_version: "Mojave",
+            browserName: "Chrome",
+            browser_version: "77.0",
             maxInstances: 1,
             "browserstack.local": true,
             "browserstack.localIdentifier": BROWSERSTACK_LOCAL_IDENTIFIER
@@ -31,13 +35,15 @@ exports.config = Object.assign({
 
             exports.tunnelInstance = new browserstackLocal.Local();
 
+            fs.mkdirSync("./output", { recursive: true });
+
             const opts = {
                 key: BROWSERSTACK_ACCESS_KEY,
                 verbose: true,
                 forceLocal: true,
                 onlyAutomate: true,
                 force: true,
-                logFile: "./browserstack-local.log",
+                logFile: "./output/browserstack-local.log",
                 localIdentifier: BROWSERSTACK_LOCAL_IDENTIFIER
             };
 
