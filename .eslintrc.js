@@ -5,92 +5,92 @@ module.exports = {
         mocha: true,
         browser: true
     },
-    extends: "eslint:recommended",
+    extends: 'eslint:recommended',
     parserOptions: {
-        sourceType: "module",
+        sourceType: 'module',
         ecmaVersion: 2017
     },
     rules: {
-        "no-undef": "off",
-        "no-var": "error",
-        "newline-before-return": "error",
-        "prefer-arrow-callback": "warn",
-        "no-console": "off",
-        "prefer-template": "error",
-        "no-unused-vars": [
-            "error",
+        'no-undef': 'off',
+        'no-var': 'error',
+        'newline-before-return': 'error',
+        'prefer-arrow-callback': 'warn',
+        'no-console': 'off',
+        'prefer-template': 'error',
+        'no-unused-vars': [
+            'error',
             {
-                "args": "none"
+                'args': 'none'
             }
         ],
         indent: [
-            "error",
+            'error',
             4,
             {
-                "SwitchCase": 1
+                'SwitchCase': 1
             }
         ],
         quotes: [
-            "error",
-            "double"
+            'error',
+            'single'
         ],
-        "quote-props": [
-            "error",
-            "as-needed"
+        'quote-props': [
+            'error',
+            'as-needed'
         ],
         semi: [
-            "error",
-            "always"
+            'error',
+            'always'
         ],
         strict: [
-            "error",
-            "global"
+            'error',
+            'global'
         ],
-        "arrow-parens": [
-            "error",
-            "as-needed"
+        'arrow-parens': [
+            'error',
+            'as-needed'
         ],
-        "comma-dangle": [
-            "error",
-            "never"
+        'comma-dangle': [
+            'error',
+            'never'
         ],
-        "space-before-function-paren": [
-            "error",
-            "never"
+        'space-before-function-paren': [
+            'error',
+            'never'
         ],
-        "object-curly-spacing": [
-            "error",
-            "always"
+        'object-curly-spacing': [
+            'error',
+            'always'
         ],
-        "space-in-parens": [
-            "error",
-            "never"
+        'space-in-parens': [
+            'error',
+            'never'
         ],
-        "array-bracket-spacing": [
-            "error",
-            "never"
+        'array-bracket-spacing': [
+            'error',
+            'never'
         ],
-        "no-multiple-empty-lines": [
-            "error",
+        'no-multiple-empty-lines': [
+            'error',
             {
-                "max": 1,
-                "maxEOF": 0,
-                "maxBOF": 0
+                'max': 1,
+                'maxEOF': 0,
+                'maxBOF': 0
             }
         ],
-        "comma-spacing": [
-            "error",
+        'comma-spacing': [
+            'error',
             {
-                "before": false,
-                "after": true
+                'before': false,
+                'after': true
             }
         ],
-        "space-before-blocks": [
-            "error",
+        'space-before-blocks': [
+            'error',
             {
-                "functions": "always",
-                "keywords": "always",
-                "classes": "always"
+                'functions': 'always',
+                'keywords': 'always',
+                'classes': 'always'
             }
         ]
     }

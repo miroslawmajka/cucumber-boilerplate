@@ -1,19 +1,19 @@
-const wdioCommon = require("./wdio.common.conf");
+const wdioCommon = require('./wdio.common.conf');
 
 exports.config = Object.assign({
     maxInstances: 1,
-    runner: "local",
-    chromeDriverLogs: "./output",
-    path: "/",
+    runner: 'local',
+    chromeDriverLogs: './output',
+    path: '/',
     services: [
-        "chromedriver"
+        'chromedriver'
     ],
     specs: [
-        "./features/*.feature"
+        './features/*.feature'
     ],
     capabilities: [
         {
-            browserName: "chrome",
+            browserName: 'chrome',
             maxInstances: 1
         }
     ],

@@ -1,15 +1,15 @@
-const Page = require("./page");
+const Page = require('./page');
 
 class GooglePage extends Page {
     getPageName() {
-        return "google";
+        return 'google';
     }
 
     getPageUrl() {
-        return "https://www.google.com";
+        return 'https://www.google.com';
     }
     getSampleElement() {
-        return "//*[@id=\"hptl\"]/a[1]"; // The "About" button
+        return '//*[@id="hptl"]/a[1]'; // The "About" button
     }
 }
 

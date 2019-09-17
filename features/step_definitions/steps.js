@@ -1,9 +1,9 @@
 /* eslint-disable prefer-arrow-callback */
 
-const { Given, Then, When } = require("cucumber");
+const { Given, Then, When } = require('cucumber');
 
-const Page = require("../../page-objects/page");
-const GooglePage = require("../../page-objects/google-page");
+const Page = require('../../page-objects/page');
+const GooglePage = require('../../page-objects/google-page');
 const googlePage = new GooglePage();
 
 Given(/^I open "([^"]*)" website$/, function(websiteName) {

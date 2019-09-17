@@ -12,3 +12,7 @@ npm install
 npm run lint
 npm test
 ```
+
+# TODO
+
+Create a sample vue.js app to run tests against (PhantomJS in CircleCI pipeline).

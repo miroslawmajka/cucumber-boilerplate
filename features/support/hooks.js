@@ -1,16 +1,16 @@
-const moment = require("moment");
-const fs = require("fs");
-const { After } = require("cucumber");
+const moment = require('moment');
+const fs = require('fs');
+const { After } = require('cucumber');
 
-const SCREENSHOTS_DIR = "./output/screenshots";
-const PAGE_SOURCES_DIR = "./output/page-sources";
-const TIMESTAMP_FORMAT = "YYYY-MM-DD-HH-mm-ss.SSS";
-const FAILED_STATUS = "failed";
+const SCREENSHOTS_DIR = './output/screenshots';
+const PAGE_SOURCES_DIR = './output/page-sources';
+const TIMESTAMP_FORMAT = 'YYYY-MM-DD-HH-mm-ss.SSS';
+const FAILED_STATUS = 'failed';
 
 After(scenario => {
     if (scenario.result.status === FAILED_STATUS) {
         const timestamp = moment().format(TIMESTAMP_FORMAT);
-        const browserName = browser.capabilities.browserName;
+        const browserName = options.capabilities.browserName.replace(/\s+/g, '');
 
         const screenshotFileName = `SCREENSHOT_${browserName}_${timestamp}.png`;
         const screenshotPath = `${SCREENSHOTS_DIR}/${screenshotFileName}`;
@@ -36,7 +36,7 @@ After(scenario => {
             console.warn(err);
         }
 
-        console.error("FAILED TEST DETAILS");
+        console.error('FAILED TEST DETAILS');
         console.error(`Feature: "${scenario.sourceLocation.uri}"`);
         console.error(`Scenario Name: "${scenario.pickle.name}"`);
         console.error(`Exception: "${scenario.result.exception.toString()}"`);
