@@ -3,6 +3,7 @@ const wdioCommon = require("./wdio.common.conf");
 exports.config = Object.assign({
     maxInstances: 1,
     runner: "local",
+    chromeDriverLogs: "./output",
     path: "/",
     services: [
         "chromedriver"

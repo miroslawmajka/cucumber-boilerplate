@@ -1,6 +1,8 @@
 class Page {
     navigate() {
         browser.url(this.getPageUrl());
+
+        return this;
     }
 
     getPageName() { }

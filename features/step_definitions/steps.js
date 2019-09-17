@@ -4,23 +4,20 @@ const { Given, Then, When } = require("cucumber");
 
 const Page = require("../../page-objects/page");
 const GooglePage = require("../../page-objects/google-page");
-const GithubPage = require("../../page-objects/github-page");
 const googlePage = new GooglePage();
-const githubPage = new GithubPage();
 
 Given(/^I open "([^"]*)" website$/, function(websiteName) {
     const websiteMap = [
-        googlePage,
-        githubPage
+        googlePage
     ];
 
     const website = websiteMap.find(e => e.getPageName() === websiteName);
 
     should.exist(website);
 
-    website.navigate();
-
-    this.scenarioContext.sampleElement = website.getSampleElement();
+    this.scenarioContext.sampleElement = website
+        .navigate()
+        .getSampleElement();
 });
 
 When(/^I get the text value of the sample element$/, function() {

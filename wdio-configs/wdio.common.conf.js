@@ -6,11 +6,11 @@ module.exports = {
     waitforTimeout: HALF_MINUTE / 3,
     connectionRetryTimeout: HALF_MINUTE,
     baseUrl: "",    // TODO: set to base environment URL
-    logLevel: "trace",
+    logLevel: "warn",
     framework: "cucumber",
     reporters: [
         "spec",
-        [ "junit", {
+        ["junit", {
             outputDir: "./test-results",
             outputFileFormat: options => {
                 return `results-${options.cid}.${options.capabilities.browserName}.xml`;
