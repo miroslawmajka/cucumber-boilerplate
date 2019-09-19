@@ -6,13 +6,14 @@ Circle CI Build Status: [![CircleCI](https://circleci.com/gh/miroslawmajka/cucum
 
 # Usage
 
-Open your favourite CLI and run the following commands to restore dependencies, lint the JavaScript and run the automated selenium tests:
+Open your favourite CLI and run the following commands to restore dependencies, lint the JavaScript and run the automated selenium tests against a local Express application:
 ```
+# Install dependencies
 npm install
+
+# Lint the JavaScript
 npm run lint
-npm test
+
+# Run the end-to-end testing by starting a local Express app, running WebdriverIO Cucumber scenarios and close down the app
+npm e2e
 ```
-
-# TODO
-
-Create a sample vue.js app to run tests against (PhantomJS in CircleCI pipeline).

@@ -2,20 +2,23 @@ class Page {
     navigate() {
         browser.url(this.getPageUrl());
 
+        // Easy method chaining for Selenium actions
         return this;
     }
 
+    // Template methods
     getPageName() { }
     getPageUrl() { }
-    getSampleElement() { }  
+    getSampleElementSelector() { }
 
-    static getElementText(element) {
-        const el = $(element);
+    // Very generic function for getting a text in an element designated by a selector
+    getSampleElementText() {
+        const element = $(this.getSampleElementSelector());
 
-        el.waitForExist(undefined);
-        el.waitForDisplayed(undefined);
+        element.waitForExist(undefined);
+        element.waitForDisplayed(undefined);
 
-        return el.getText();
+        return element.getText();
     }
 }
 
