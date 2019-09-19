@@ -6,7 +6,7 @@ Circle CI Build Status: [![CircleCI](https://circleci.com/gh/miroslawmajka/cucum
 
 # Usage
 
-Open your favourite CLI and run the following commands to restore dependencies, lint the JavaScript and run the automated selenium tests against a local Express application:
+Open your favourite CLI, like Git Bash in Windows and run the following commands:
 ```
 # Install dependencies
 npm install
@@ -14,6 +14,7 @@ npm install
 # Lint the JavaScript
 npm run lint
 
-# Run the end-to-end testing by starting a local Express app, running WebdriverIO Cucumber scenarios and close down the app
-npm e2e
+# Run the end-to-end testing by starting a local Express app, 
+# running WebdriverIO Cucumber scenarios and close down the app
+npm test
 ```

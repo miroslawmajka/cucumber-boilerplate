@@ -20,6 +20,11 @@ const capabilities = [
     }
 ];
 
+capabilities.forEach(c => {
+    c.build = 'Cucumber Boilerplate Build N/A';
+    c.project = 'Cucumber Boilerplate Project';
+});
+
 exports.config = Object.assign({
     capabilities,
     maxInstances: 1,

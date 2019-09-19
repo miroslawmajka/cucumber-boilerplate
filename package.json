@@ -6,10 +6,11 @@
     "lint": "eslint --color .",
     "start": "forever start sample-express-app/bin/www",
     "stop": "forever stopall",
-    "test": "npm run test-chromedriver",
+    "test": "npm run e2e-local",
     "test-chromedriver": "wdio wdio-configs/wdio.chromedriver.conf.js",
     "test-browserstack": "wdio wdio-configs/wdio.browserstack.conf.js",
-    "e2e": "npm start && npm test && npm stop"
+    "e2e-local": "npm start && npm run test-chromedriver && npm stop",
+    "e2e-cloud": "npm start && npm run test-browserstack && npm stop"
   },
   "repository": {
     "type": "git",
