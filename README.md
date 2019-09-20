@@ -8,13 +8,17 @@ Circle CI Build Status: [![CircleCI](https://circleci.com/gh/miroslawmajka/cucum
 
 Open your favourite CLI, like Git Bash in Windows and run the following commands:
 ```
-# Install dependencies
+# Installs dependencies
 npm install
 
-# Lint the JavaScript
+# Lints the JavaScript
 npm run lint
 
-# Run the end-to-end testing by starting a local Express app, 
-# running WebdriverIO Cucumber scenarios and close down the app
+# Runs the end-to-end testing by starting a local Express app,
+# using WebdriverIO Cucumber scenarios and closes down the app
 npm test
 ```
+
+Please see the specific `package.json` scripts and the `wdio-configs`
+for details about running the tests locally using Chromedriver (with GUI or not) or
+by delegating the testing effor to BrowserStack.

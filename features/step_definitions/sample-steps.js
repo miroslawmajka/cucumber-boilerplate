@@ -25,3 +25,18 @@ Then(/^The expected text value equals "([^"]*)"$/, function(expectedValue) {
 
     textElementValue.should.equal(expectedValue);
 });
+
+When(/^I click on the show more text button$/, function() {
+    const page = this.scenarioContext.page;
+
+    page.clickMoreTextButton();
+});
+
+Then(/^The more text eventually appears$/, function() {
+    const page = this.scenarioContext.page;
+
+    const moreText = page.waitForMoreText();
+
+    should.exist(moreText);
+    moreText.should.be.a('string');
+});

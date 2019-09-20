@@ -10,9 +10,8 @@ const FAILED_STATUS = 'failed';
 After(scenario => {
     if (scenario.result.status === FAILED_STATUS) {
         const timestamp = moment().format(TIMESTAMP_FORMAT);
-        const browserName = options.capabilities.browserName.replace(/\s+/g, '');
 
-        const screenshotFileName = `SCREENSHOT_${browserName}_${timestamp}.png`;
+        const screenshotFileName = `SCREENSHOT_${timestamp}.png`;
         const screenshotPath = `${SCREENSHOTS_DIR}/${screenshotFileName}`;
 
         try {
@@ -24,7 +23,7 @@ After(scenario => {
             console.warn(err);
         }
 
-        const pageSourceFileName = `PAGE_SOURCE_${browserName}_${timestamp}.html`;
+        const pageSourceFileName = `PAGE_SOURCE_${timestamp}.html`;
         const pageSourcePath = `${PAGE_SOURCES_DIR}/${pageSourceFileName}`;
 
         try{
