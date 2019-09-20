@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const HALF_MINUTE = 30000;
 
 module.exports = {
@@ -5,7 +7,7 @@ module.exports = {
     connectionRetryCount: 3,
     waitforTimeout: HALF_MINUTE / 3,
     connectionRetryTimeout: HALF_MINUTE,
-    baseUrl: '',    // TODO: set to base environment URL
+    baseUrl: 'http://localhost:3000',
     logLevel: 'warn',
     framework: 'cucumber',
     reporters: [

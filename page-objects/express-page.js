@@ -6,7 +6,7 @@ class ExpressPage extends Page {
     }
 
     getPageUrl() {
-        return 'http://localhost:3000/';
+        return '/';
     }
 
     getSampleElementSelector() {

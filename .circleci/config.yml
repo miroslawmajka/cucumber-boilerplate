@@ -7,4 +7,9 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run lint
-      
+      - run: echo "HEADLESS_CHROME=true" > .env
+      - run: run test
+      - store_test_results:
+          path: ~/test-results
+      - store_artifacts:
+          path: ~/test-results

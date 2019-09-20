@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const browserstackLocal = require('browserstack-local');
 const fs = require('fs');
 
