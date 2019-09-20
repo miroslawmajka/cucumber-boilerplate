@@ -13,7 +13,7 @@ module.exports = {
     reporters: [
         'spec',
         ['junit', {
-            outputDir: './test-results',
+            outputDir: './test-results/cucumber',
             outputFileFormat: options => {
                 const browserName = options.capabilities.browserName.replace(/\s+/g, '');
 
