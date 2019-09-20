@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "lint": "eslint --color .",
-    "start": "forever start sample-express-app/bin/www",
+    "start": "forever --minUptime 500 --spinSleepTime 2000 start sample-express-app/bin/www",
     "stop": "forever stopall",
     "restart": "npm stop && npm start",
     "test": "npm run e2e-local",
