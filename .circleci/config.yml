@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
+      - run: chmod +x ~/node_modules/chromedriver/lib/chromedriver/chromedriver
       - run: npm run lint
       - run: echo "HEADLESS_CHROME=true" > .env
       - run: npm test
