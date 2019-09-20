@@ -10,6 +10,6 @@ jobs:
       - run: echo "HEADLESS_CHROME=true" > .env
       - run: npm test
       - store_test_results:
-          path: ~/test-results
+          path: test-results
       - store_artifacts:
-          path: ~/output
+          path: output
