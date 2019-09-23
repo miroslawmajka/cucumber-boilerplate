@@ -40,3 +40,21 @@ Then(/^The more text eventually appears$/, function() {
     should.exist(moreText);
     moreText.should.be.a('string');
 });
+
+When(/^I click on the iframe submit button$/, function() {
+    const page = this.scenarioContext.page;
+
+    this.scenarioContext.frameCurrentValue = page.getFrameCurrentValue();
+
+    page.clickSubmitInFrame();
+});
+
+Then(/^The iframe refreshes with a new value$/, function() {
+    const page = this.scenarioContext.page;
+    const framePreviousValue = this.scenarioContext.frameCurrentValue;
+
+    const frameCurrentValue = page.getFrameCurrentValue();
+
+    should.exist(frameCurrentValue);
+    frameCurrentValue.should.not.equal(framePreviousValue);
+});

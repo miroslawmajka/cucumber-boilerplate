@@ -12,14 +12,17 @@ module.exports = {
     framework: 'cucumber',
     reporters: [
         'spec',
-        ['junit', {
-            outputDir: './test-results/cucumber',
-            outputFileFormat: options => {
-                const browserName = options.capabilities.browserName.replace(/\s+/g, '');
+        [
+            'junit',
+            {
+                outputDir: './test-results/cucumber',
+                outputFileFormat: options => {
+                    const browserName = options.capabilities.browserName.replace(/\s+/g, '');
 
-                return `results-${options.cid}.${browserName}.xml`;
+                    return `results-${options.cid}.${browserName}.xml`;
+                }
             }
-        }]
+        ]
     ],
     cucumberOpts: {
         format: [
