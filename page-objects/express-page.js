@@ -54,10 +54,16 @@ class ExpressPage extends Page {
         submitButton.click();
     }
 
-    getFrameCurrentValue() {
+    getFrameCurrentValue(shouldExist) {
         this.switchToFrame();
 
         const frameCurrentValue = $(this.frameCurrentValueSelector);
+
+        // Encountered problem when running tests across Selenium Grid/Node with getText() not waiting for iframe to load
+        const submitButton = $(this.frameSubmitButtonSelector);
+        submitButton.waitForExist();
+        submitButton.waitForDisplayed();
+        submitButton.waitForEnabled();
 
         return frameCurrentValue.getText();
     }

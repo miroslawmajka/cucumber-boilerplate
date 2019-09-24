@@ -10,6 +10,7 @@
     "test": "npm run e2e-local",
     "test-chromedriver": "wdio wdio-configs/wdio.chromedriver.conf.js",
     "test-browserstack": "wdio wdio-configs/wdio.browserstack.conf.js",
+    "test-remote": "wdio wdio-configs/wdio.remote.conf.js",
     "e2e-local": "npm restart && npm run test-chromedriver && npm stop",
     "e2e-cloud": "npm restart && npm run test-browserstack && npm stop"
   },
