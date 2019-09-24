@@ -2,7 +2,7 @@ ersion: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:stretch-browsers
+      - image: circleci/node:stretch
     steps:
       - checkout
       - restore_cache:
@@ -13,6 +13,16 @@ jobs:
       - run:
           name: Lint JavaScript Files
           command: npm run lint
+  test:
+    docker:
+      - image: circleci/node:stretch-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: npm install
       - run:
           name: Setup Environment
           command: echo "HEADLESS_CHROME=true" > .env
@@ -27,3 +37,10 @@ jobs:
           path: test-results
       - store_artifacts:
           path: output
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
