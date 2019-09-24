@@ -1,6 +1,6 @@
 ersion: 2
 jobs:
-  build:
+  restore:
     docker:
       - image: circleci/node:stretch
     steps:
@@ -10,6 +10,17 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+  build:
+    docker:
+      - image: circleci/node:stretch
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Lint JavaScript Files
           command: npm run lint
@@ -21,18 +32,11 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
           name: Setup Environment
           command: echo "HEADLESS_CHROME=true" > .env
       - run:
           name: Run Selenium Tests
           command: npm test
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -42,5 +46,9 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
-      - test
+      - build:
+          requires:
+            - restore
+      - test:
+          requires:
+            - restore
