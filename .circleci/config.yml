@@ -17,6 +17,10 @@ jobs:
       - run:
           name: Run Selenium Tests
           command: npm test
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
       - store_test_results:
           path: test-results
       - store_artifacts:
