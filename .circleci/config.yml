@@ -5,11 +5,11 @@ jobs:
       - image: circleci/node:stretch-browsers
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install Dependencies
           command: npm install
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Lint JavaScript Files
           command: npm run lint
