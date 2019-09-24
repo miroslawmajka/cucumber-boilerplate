@@ -22,6 +22,15 @@ module.exports = {
                     return `results-${options.cid}.${browserName}.xml`;
                 }
             }
+        ],
+        [
+            'allure',
+            {
+                outputDir: './test-results/allure-results',
+                disableWebdriverStepsReporting: true,
+                disableWebdriverScreenshotsReporting: true,
+                useCucumberStepReporter: true
+            }
         ]
     ],
     cucumberOpts: {

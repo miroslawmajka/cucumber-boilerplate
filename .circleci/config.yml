@@ -5,10 +5,18 @@ jobs:
       - image: circleci/node:stretch-browsers
     steps:
       - checkout
-      - run: npm install
-      - run: npm run lint
-      - run: echo "HEADLESS_CHROME=true" > .env
-      - run: npm test
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Lint JavaScript Files
+          command: npm run lint
+      - run:
+          name: Setup Environment
+          command: echo "HEADLESS_CHROME=true" > .env
+      - run:
+          name: Run Selenium Tests
+          command: npm test
       - store_test_results:
           path: test-results
       - store_artifacts:
