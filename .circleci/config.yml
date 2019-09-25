@@ -1,4 +1,7 @@
-ersion: 2
+version: 2.1
+orbs:
+  allure: ayte/allure@0.1.2
+
 jobs:
   restore:
     docker:
@@ -41,6 +44,8 @@ jobs:
           path: test-results
       - store_artifacts:
           path: output
+      - allure/install
+      - allure/report
 
 workflows:
   version: 2
