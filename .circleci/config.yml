@@ -45,7 +45,8 @@ jobs:
       - store_artifacts:
           path: output
       - allure/install
-      - allure/report
+      - allure/report:
+          results-path: test-results/allure-results
 
 workflows:
   version: 2
