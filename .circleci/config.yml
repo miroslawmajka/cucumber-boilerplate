@@ -55,11 +55,17 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
+          name: Start Express
+          command: npm start
+      - run:
           name: Setup Local Postman Environment
           command: cp environments/local-postman-environment.json postman-environment.json
       - run:
           name: Run Postman Tests
           command: ./run-newman.sh
+      - run:
+          name: Stop Express
+          command: npm stop
       - store_test_results:
           path: test-results
 workflows:
