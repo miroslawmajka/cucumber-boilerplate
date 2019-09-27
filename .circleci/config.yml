@@ -17,7 +17,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-  build:
+  lint:
     docker:
       - image: circleci/node:stretch
     steps:
@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Lint JavaScript Files
           command: npm run lint
-  test:
+  wdio:
     docker:
       - image: circleci/node:stretch-browsers
     steps:
@@ -35,8 +35,8 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Setup Environment
-          command: echo "HEADLESS_CHROME=true" > .env
+          name: Setup WDIO Environment
+          command: cp environments/wdio.env .env
       - run:
           name: Run Selenium Tests
           command: npm test
@@ -47,15 +47,32 @@ jobs:
       - allure/install
       - allure/report:
           results-path: test-results/allure-results
-
+  postman:
+    docker:
+      - image: circleci/node:stretch
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Setup Local Postman Environment
+          command: cp environments/local-postman-environment.json postman-environment.json
+      - run:
+          name: Run Postman Tests
+          command: npm run newman
+      - store_test_results:
+          path: test-results
 workflows:
-  version: 2
+  version: 2.1
   build_and_test:
     jobs:
       - restore
-      - build:
+      - lint:
           requires:
             - restore
-      - test:
+      - wdio:
+          requires:
+            - restore
+      - postman:
           requires:
             - restore

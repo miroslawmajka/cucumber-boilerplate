@@ -67,3 +67,4 @@ typings/
 
 output/**/*.*
 test-results
+/postman-environment.json

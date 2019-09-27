@@ -47,6 +47,7 @@
     "dotenv": "^8.1.0",
     "eslint": "^6.4.0",
     "moment": "^2.24.0",
+    "newman": "^4.5.4",
     "wdio-chromedriver-service": "^5.0.2",
     "webdriverio": "^5.13.1"
   }

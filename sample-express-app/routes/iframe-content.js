@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
+/* GET main iframe page */
 router.get('/', (req, res, next) => {
-    // Artificial timeout for the request
     const sampleParam = req.query.sampleParam;
     const target = 'iframe-content';
 
     if (sampleParam) {
+        // Artificial timeout for the request
         setTimeout(() => {
             res.render(target, {
                 layout: false,
