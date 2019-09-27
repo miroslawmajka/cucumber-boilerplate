@@ -59,7 +59,7 @@ jobs:
           command: cp environments/local-postman-environment.json postman-environment.json
       - run:
           name: Run Postman Tests
-          command: npm run newman
+          command: ./run-newman.sh
       - store_test_results:
           path: test-results
 workflows:
