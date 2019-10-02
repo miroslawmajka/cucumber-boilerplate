@@ -38,8 +38,9 @@ jobs:
           name: Setup WDIO Environment
           command: cp environments/wdio.env .env
       - run: mkdir output
+      - run: npm install -g sample-express-app
       - run:
-          name: Start Sample Express App
+          name: Start Sample Express App and run Selenium tests
           command: (sample-express-app > output/express.log &) && npm test
 #      - run:
 #          name: Run Selenium Tests

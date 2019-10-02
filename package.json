@@ -4,7 +4,6 @@
   "description": "",
   "scripts": {
     "lint": "eslint --color .",
-    "start": "sample-express-app",
     "test": "npm run test-chromedriver",
     "test-chromedriver": "wdio wdio-configs/wdio.chromedriver.conf.js",
     "test-browserstack": "wdio wdio-configs/wdio.browserstack.conf.js",
@@ -18,9 +17,6 @@
   "author": "Miroslaw Majka",
   "license": "ISC",
   "homepage": "https://github.com/miroslawmajka/cucumber-boilerplate",
-  "dependencies": {
-    "sample-express-app": "^1.0.3"
-  },
   "devDependencies": {
     "@wdio/allure-reporter": "^5.13.2",
     "@wdio/browserstack-service": "^5.13.2",
