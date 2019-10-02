@@ -40,10 +40,10 @@ jobs:
       - run: mkdir output
       - run:
           name: Start Sample Express App
-          command: sample-express-app > output/express.log &
-      - run:
-          name: Run Selenium Tests
-          command: npm test
+          command: (sample-express-app > output/express.log &) && npm test
+#      - run:
+#          name: Run Selenium Tests
+#          command: npm test
       - run: killall node
       - store_test_results:
           path: test-results
@@ -84,6 +84,6 @@ workflows:
       - wdio:
           requires:
             - restore
-      - postman:
-          requires:
-            - restore
+#      - postman:
+#          requires:
+#            - restore
