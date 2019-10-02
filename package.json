@@ -36,5 +36,8 @@
     "newman": "^4.5.5",
     "wdio-chromedriver-service": "^5.0.2",
     "webdriverio": "^5.14.3"
+  },
+  "dependencies": {
+    "sample-express-app": "^1.0.3"
   }
 }
