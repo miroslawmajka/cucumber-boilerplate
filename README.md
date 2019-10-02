@@ -17,8 +17,7 @@ npm install
 # Lints the JavaScript
 npm run lint
 
-# Runs the end-to-end testing by starting a local Express app,
-# using WebdriverIO Cucumber scenarios and closes down the app
+# Runs the end-to-end testing using WebdriverIO Cucumber scenarios and closes down the app
 npm test
 ```
 
