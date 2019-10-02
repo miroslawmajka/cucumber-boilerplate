@@ -9,7 +9,7 @@ Feature: Sample Cucumber Feature
     When I get the text value of the sample element
 
     # The assertion of the value, injected through the step parameter
-    Then The expected text value equals "Welcome to Cucumber Boilerplate Express"
+    Then The expected text value equals "Welcome to Sample Express Web Application"
 
   Scenario: Clicking on the button in the page to see more text
     When I click on the show more text button
