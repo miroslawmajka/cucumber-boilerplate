@@ -1,6 +1,6 @@
-const Page = require('./page');
+const SampleExpressAppPage = require('./sample-express-app-page');
 
-class ExpressPage extends Page {
+class IndexPage extends SampleExpressAppPage {
     constructor() {
         super();
 
@@ -13,7 +13,7 @@ class ExpressPage extends Page {
     }
 
     getPageName() {
-        return 'sample-express';
+        return 'sample-express-app-index';
     }
 
     getPageUrl() {
@@ -78,4 +78,4 @@ class ExpressPage extends Page {
     }
 }
 
-module.exports = ExpressPage;
+module.exports = IndexPage;

@@ -58,3 +58,24 @@ Then(/^The iframe refreshes with a new value$/, function() {
     should.exist(frameCurrentValue);
     frameCurrentValue.should.not.equal(framePreviousValue);
 });
+
+When(/^I click the "([^"]*)" top navigation link$/, function(linkName) {
+    const page = this.scenarioContext.page;
+
+    const topNavigationMap = [
+        {
+            linkName: 'Index',
+            clickAction: () => page.clickTopNavigationIndex()
+        },
+        {
+            linkName: 'Additional Samples',
+            clickAction: () => page.clickTopNavigationAdditionalSamples()
+        }
+    ];
+
+    const topNavigationTarget = topNavigationMap.find(n => n.linkName === linkName);
+
+    if (!topNavigationTarget) throw new Error(`Link "${linkName}" is not mapped`);
+
+    this.scenarioContext.page = topNavigationTarget.clickAction();
+});

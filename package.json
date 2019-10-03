@@ -1,6 +1,6 @@
 {
   "name": "cucumber-boilerplate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cucumber WebdriverIO Boilerplate",
   "scripts": {
     "lint": "eslint --color .",
@@ -38,6 +38,6 @@
     "webdriverio": "^5.14.3"
   },
   "dependencies": {
-    "sample-express-app": "^1.0.3"
+    "sample-express-app": "^1.0.5"
   }
 }

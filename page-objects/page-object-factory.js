@@ -1,9 +1,11 @@
-const ExpressPage = require('./express-page');
+const IndexPage = require('./sample-express-app-pages/index-page');
+const AdditionalSamplesPage = require('./sample-express-app-pages/additional-samples-page');
 
 class PageObjectFactory {
     constructor() {
         this.pages = [
-            new ExpressPage()
+            new IndexPage(),
+            new AdditionalSamplesPage()
         ];
     }
 
