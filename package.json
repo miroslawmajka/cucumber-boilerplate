@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "lint": "eslint --color .",
+    "start": "sample-express-app",
     "test": "npm run test-chromedriver",
     "test-chromedriver": "wdio wdio-configs/wdio.chromedriver.conf.js",
     "test-browserstack": "wdio wdio-configs/wdio.browserstack.conf.js",

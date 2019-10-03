@@ -37,8 +37,8 @@ jobs:
       - run: cp environments/headless-chrome-wdio.env .env
       - run: mkdir output
       - run:
-          name: Start Sample Express App and run Selenium tests
-          command: (./node_modules/.bin/sample-express-app > output/express.log &) && npm test
+          name: Start Sample Express App in the background and run WebdriverIO tests
+          command:  (npm start > output/express.log &) && npm test
       - store_test_results:
           path: test-results
       - store_artifacts:
