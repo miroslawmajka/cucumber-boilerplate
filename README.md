@@ -5,12 +5,19 @@ Node.js Cucumber WebdriverIO Chromedriver and BrowserStack Boilerplate
 Circle CI Build Status: [![CircleCI](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate.svg?style=svg)](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate)
 
 WebdriverIO API (ver. 5): https://webdriver.io/docs/api.html
+
 Webdriver Protocol: https://webdriver.io/docs/api/webdriver.html
 
 # Usage
 
 Open your favourite CLI, like Git Bash in Windows and run the following commands:
-```
+```shell script
+# Install "Sample Express App"
+npm install -g sample-express-app
+
+# Run "Sample Express App" in the background
+sample-express-app > express.log &
+
 # Installs dependencies
 npm install
 

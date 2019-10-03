@@ -1,4 +1,5 @@
 version: 2.1
+
 orbs:
   allure: ayte/allure@0.1.2
 
@@ -38,7 +39,7 @@ jobs:
       - run: mkdir output
       - run:
           name: Start Sample Express App in the background and run WebdriverIO tests
-          command:  (npm start > output/express.log &) && npm test
+          command: (npm start > output/express.log &) && npm test
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -46,9 +47,10 @@ jobs:
       - allure/install
       - allure/report:
           results-path: test-results/allure-results
+
 workflows:
   version: 2.1
-  resotre_lint_wdio:
+  restore_lint_wdio:
     jobs:
       - restore
       - lint:
