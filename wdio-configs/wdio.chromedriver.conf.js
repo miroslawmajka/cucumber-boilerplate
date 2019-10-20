@@ -22,8 +22,5 @@ exports.config = Object.assign({
     chromeDriverLogs: './output',
     services: [
         'chromedriver'
-    ],
-    onComplete: (exitCode, config, capabilities, results) => {
-        console.log(`All WebdriverIO workers complete with "${exitCode}" exit code`);
-    }
+    ]
 }, wdioCommon);

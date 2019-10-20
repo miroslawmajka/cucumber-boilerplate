@@ -24,7 +24,7 @@ capabilities.forEach(c => {
     c.project = 'Cucumber Boilerplate Project';
 });
 
-exports.config = Object.assign({
+const config = Object.assign({
     capabilities,
     maxInstances: 1,
     user: process.env.BROWSERSTACK_USERNAME,
@@ -59,21 +59,25 @@ exports.config = Object.assign({
                 resolve();
             });
         });
-    },
-    onComplete: (exitCode, config, capabilities, results) => {
-        console.log(`All WebdriverIO workers complete with "${exitCode}" exit code`);
-        console.log(`BrowserStack Local Testing running: "${exports.tunnelInstance.isRunning()}"`);
-
-        if (exports.tunnelInstance) {
-            console.log('Stopping BrowserStack Local Testing...');
-
-            return new Promise(resolve => {
-                exports.tunnelInstance.stop(() => {
-                    console.log('Stopped BrowserStack Local Testing');
-
-                    resolve();
-                });
-            });
-        }
     }
 }, wdioCommon);
+
+// Override "onComplete" from common
+config.onComplete = (exitCode, config, capabilities, results) => {
+    console.log(`All WebdriverIO workers complete with "${exitCode}" exit code`);
+    console.log(`BrowserStack Local Testing running: "${exports.tunnelInstance.isRunning()}"`);
+
+    if (exports.tunnelInstance) {
+        console.log('Stopping BrowserStack Local Testing...');
+
+        return new Promise(resolve => {
+            exports.tunnelInstance.stop(() => {
+                console.log('Stopped BrowserStack Local Testing');
+
+                resolve();
+            });
+        });
+    }
+};
+
+exports.config = config;

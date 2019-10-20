@@ -54,5 +54,8 @@ module.exports = {
         global.expect = chai.expect;
         global.assert = chai.assert;
         global.should = chai.should();
+    },
+    onComplete: (exitCode, config, capabilities, results) => {
+        console.log(`All WebdriverIO workers complete with "${exitCode}" exit code`);
     }
 };

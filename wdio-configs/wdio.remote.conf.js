@@ -13,8 +13,5 @@ exports.config = Object.assign({
     maxInstances: 1,
     hostname: process.env.REMOTE_SELENIUM_HOST,
     port: parseInt(process.env.REMOTE_SELENIUM_PORT),
-    path: '/wd/hub',
-    onComplete: (exitCode, config, capabilities, results) => {
-        console.log(`All WebdriverIO workers complete with "${exitCode}" exit code`);
-    }
+    path: '/wd/hub'
 }, wdioCommon);
