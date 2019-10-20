@@ -12,7 +12,6 @@ Functionalities Covered:
 * Selenium Grid / Remote Testing (https://www.seleniumhq.org/docs/07_selenium_grid.jsp)
 * BrowserStack / Cloud Testng (https://www.browserstack.com/automate/webdriverio)
 * Allure Reporting
-* Video Recording
 
 # WebdriverIO
 
