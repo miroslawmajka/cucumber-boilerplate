@@ -1,3 +1,5 @@
+const video = require('wdio-video-reporter');
+
 require('dotenv').config();
 
 const HALF_MINUTE = 30000;
@@ -34,7 +36,15 @@ module.exports = {
                 disableWebdriverScreenshotsReporting: true,
                 useCucumberStepReporter: true
             }
-        ]
+        ],
+        [
+            video, 
+            {
+                outputDir: './output/videos',
+                saveAllVideos: true,       // If true, also saves videos for successful test cases
+                videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+            }
+        ],
     ],
     cucumberOpts: {
         format: [

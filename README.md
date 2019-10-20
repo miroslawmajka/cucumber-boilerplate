@@ -1,8 +1,22 @@
 # Cucumber Boilerplate
 
-Node.js Cucumber WebdriverIO Chromedriver and BrowserStack Boilerplate
+Node.js Cucumber Boilerplate
 
 Circle CI Build Status: [![CircleCI](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate.svg?style=svg)](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate)
+
+Functionalities Covered:
+
+* WebdriverIO (https://webdriver.io/)
+* Cucumber.js / Gherking / BDD (https://cucumber.io/docs/installation/javascript/)
+* Chromedriver / Local Testing (https://sites.google.com/a/chromium.org/chromedriver/)
+* Selenium Grid / Remote Testing (https://www.seleniumhq.org/docs/07_selenium_grid.jsp)
+* BrowserStack / Cloud Testng (https://www.browserstack.com/automate/webdriverio)
+* Allure Reporting
+* Video Recording
+
+# WebdriverIO
+
+Instead of using vanilla Node.js automated browser testing framworks from scratch you can utilize a very handy set of libraries called "WebdriverIO" which brings together all those tools in a unified testing package. These libraries can be installed independently and used via "wdio.conf.js" files as emtry points.
 
 WebdriverIO API (ver. 5): https://webdriver.io/docs/api.html
 
@@ -24,7 +38,7 @@ npm install
 # Lints the JavaScript
 npm run lint
 
-# Runs the end-to-end testing using WebdriverIO Cucumber scenarios and closes down the app
+# Runs the end-to-end testing using WebdriverIO Cucumber scenarios
 npm test
 ```
 
@@ -36,7 +50,7 @@ by delegating the testing effor to BrowserStack.
 
 The "Sample Express App" is a standalone Node.js Express web application running at http://localhost:3000 that can be tested using Selenium. Sample screenshot below.
 
-![SampleExpressAppScreen](sample-express-app-screen.png "Sample Express App")
+![SampleExpressAppScreen](docs/sample-express-app.png "Sample Express App")
 
 The views served by that application provide simple AJAX-like interaction and also an embedded iframe.
 
@@ -47,4 +61,3 @@ The application is available at https://github.com/miroslawmajka/sample-express-
 # TODO
 
 * CrossBrowserTesting (https://webdriver.io/docs/crossbrowsertesting-service.html)
-* Video Reporter (https://webdriver.io/docs/wdio-video-reporter.html)
