@@ -35,7 +35,7 @@ jobs:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
-      - run: cp environments/headless-chrome-wdio.env .env
+      - run: cp environments/local-headless-chrome.env .env
       - run: mkdir output
       - run:
           name: Start Sample Express App in the background and run WebdriverIO tests

@@ -4,7 +4,7 @@ Feature: Sample Cucumber Feature
     # Very start of a cucumber test scenario (the arrangement), opening a page to start with
     Given The "sample-express-app-index" page is opened
 
-  Scenario: Verfying that the sample page element contains the desired text
+  Scenario: Verifying that the sample page element contains the desired text
     # The action, a very generic call to get some sample value from the page
     When I get the text value of the sample element
 
@@ -21,7 +21,7 @@ Feature: Sample Cucumber Feature
     When I click on the iframe submit button
     Then The iframe refreshes with a new value
 
-  Scenario: Verfying that the sample page element is different on different pages
+  Scenario: Verifying that the sample page element is different on different pages
     When I get the text value of the sample element
     Then The expected text value equals "Welcome to Sample Express Web Application - Index"
 

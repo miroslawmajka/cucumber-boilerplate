@@ -7,9 +7,12 @@ module.exports = {
     connectionRetryCount: 3,
     waitforTimeout: HALF_MINUTE / 3,
     connectionRetryTimeout: HALF_MINUTE,
-    baseUrl: 'http://localhost:3000',
+    baseUrl: process.env.BASE_URL,
     logLevel: 'warn',
     framework: 'cucumber',
+    specs: [
+        './features/*.feature'
+    ],
     reporters: [
         'spec',
         [

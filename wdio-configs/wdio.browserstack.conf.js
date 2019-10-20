@@ -6,6 +6,7 @@ const wdioCommon = require('./wdio.common.conf');
 const BROWSERSTACK_ACCESS_KEY = process.env.BROWSERSTACK_ACCESS_KEY;
 const BROWSERSTACK_LOCAL_IDENTIFIER = process.env.BROWSERSTACK_LOCAL_IDENTIFIER;
 
+// Ideal for running in continous testing environment powered by TeamCity/CircleCI/etc
 const capabilities = [
     {
         os: 'OS X',
@@ -30,9 +31,6 @@ exports.config = Object.assign({
     key: BROWSERSTACK_ACCESS_KEY,
     services: [
         'browserstack'
-    ],
-    specs: [
-        './features/*.feature'
     ],
     onPrepare: (config, capabilities) => {
         return new Promise((resolve, reject) => {

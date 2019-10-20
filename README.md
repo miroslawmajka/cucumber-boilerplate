@@ -32,6 +32,18 @@ Please see the specific `package.json` scripts and the `wdio-configs`
 for details about running the tests locally using Chromedriver (with GUI or not) or
 by delegating the testing effor to BrowserStack.
 
+# Sample Express App
+
+The "Sample Express App" is a standalone Node.js Express web application running at http://localhost:3000 that can be tested using Selenium. Sample screenshot below.
+
+![SampleExpressAppScreen](sample-express-app-screen.png "Sample Express App")
+
+The views served by that application provide simple AJAX-like interaction and also an embedded iframe.
+
+The Gherking test scenarios in the [sample-cucumber.feature](features/sample-cucumber.feature) file rely on this application running in the background.
+
+The application is available at https://github.com/miroslawmajka/sample-express-app.
+
 # TODO
 
 * CrossBrowserTesting (https://webdriver.io/docs/crossbrowsertesting-service.html)

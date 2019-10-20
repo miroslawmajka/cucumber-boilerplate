@@ -1,5 +1,6 @@
 const wdioCommon = require('./wdio.common.conf');
 
+// Running 1 test at a time in a local Chrome browser, ideal for debugging
 const capabilities = [
     {
         browserName: 'chrome',
@@ -21,9 +22,6 @@ exports.config = Object.assign({
     chromeDriverLogs: './output',
     services: [
         'chromedriver'
-    ],
-    specs: [
-        './features/*.feature'
     ],
     onComplete: (exitCode, config, capabilities, results) => {
         console.log(`All WebdriverIO workers complete with "${exitCode}" exit code`);
