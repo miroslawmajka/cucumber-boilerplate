@@ -1,14 +1,11 @@
 const wdioCommon = require('./wdio.common.conf');
 
-const HALF_MINUTE = 30000;
-
 module.exports = Object.assign({
     framework: 'cucumber',
     specs: [
         './features/*.feature'
     ],
     reporters: [
-        'spec',
         [
             'junit',
             {
@@ -35,7 +32,7 @@ module.exports = Object.assign({
             'pretty'
         ],
         colors: true,
-        timeout: HALF_MINUTE * 2,
+        timeout: wdioCommon.connectionRetryTimeout * 2,
         backtrace: true,
         require: [
             './features/support/*.js',

@@ -1,4 +1,5 @@
 const wdioCommon = require('./wdio.common.conf');
+const postTestArtifact = require('../utils/post-test-artifact');
 
 // Running 1 test at a time in a local Chrome browser, ideal for debugging
 const capabilities = [
@@ -26,13 +27,12 @@ exports.config = Object.assign({
     framework: 'mocha',
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: wdioCommon.connectionRetryTimeout * 2
     },
     specs: [
         './mocha/**/*.js'
     ],
     reporters: [
-        'spec',
         [
             'junit',
             {
@@ -55,7 +55,8 @@ exports.config = Object.assign({
     ],
     afterTest: function(test, context, { error, result, duration, passed }) {
         if (!passed) {
-            browser.takeScreenshot();
+            postTestArtifact.takeScreenshot(browser);
+            postTestArtifact.savePageSource(browser);
         }
     }
 }, wdioCommon);
