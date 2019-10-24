@@ -1,28 +1,21 @@
 const wdioCommon = require('./wdio.common.conf');
+const postTestArtifact = require('../utils/post-test-artifact');
 
-module.exports = Object.assign({
-    framework: 'cucumber',
-    cucumberOpts: {
-        format: [
-            'pretty'
-        ],
-        colors: true,
-        timeout: wdioCommon.connectionRetryTimeout * 2,
-        backtrace: true,
-        require: [
-            './features/support/*.js',
-            './features/step_definitions/*.js'
-        ]
+module.exports = Object.assign({  
+    framework: 'mocha',
+    mochaOpts: {
+        ui: 'bdd',
+        timeout: wdioCommon.connectionRetryTimeout * 2
     },
     specs: [
-        './features/*.feature'
+        './mocha/**/*.js'
     ],
     reporters: [
         'spec',
         [
             'junit',
             {
-                outputDir: './test-results/cucumber',
+                outputDir: './test-results/mocha',
                 outputFileFormat: options => {
                     const browserName = options.capabilities.browserName.replace(/\s+/g, '');
 
@@ -35,9 +28,14 @@ module.exports = Object.assign({
             {
                 outputDir: './test-results/allure-results',
                 disableWebdriverStepsReporting: true,
-                disableWebdriverScreenshotsReporting: true,
-                useCucumberStepReporter: true
+                disableWebdriverScreenshotsReporting: true
             }
         ]
-    ]
+    ],
+    afterTest: function(test, context, { error, result, duration, passed }) {
+        if (!passed) {
+            postTestArtifact.takeScreenshot(browser);
+            postTestArtifact.savePageSource(browser);
+        }
+    }
 }, wdioCommon);

@@ -18,8 +18,5 @@ module.exports = {
     },
     onComplete: (exitCode, config, capabilities, results) => {
         console.log(`All WebdriverIO workers complete with "${exitCode}" exit code`);
-    },
-    reporters: [
-        'spec'
-    ]
+    }
 };

@@ -65,6 +65,5 @@ typings/
 .vscode
 .vs
 
-output/**/*.*
+output
 test-results
-/postman-environment.json
