@@ -1,4 +1,4 @@
-const wdioCommon = require('./wdio.common.conf');
+const wdioCucumber = require('./wdio.cucumber.conf');
 
 // Running 1 test at a time in a local Chrome browser, ideal for debugging
 const capabilities = [
@@ -23,4 +23,4 @@ exports.config = Object.assign({
     services: [
         'chromedriver'
     ]
-}, wdioCommon);
+}, wdioCucumber);

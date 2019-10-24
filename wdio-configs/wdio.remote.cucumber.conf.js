@@ -1,4 +1,4 @@
-const wdioCommon = require('./wdio.common.conf');
+const wdioCucumber = require('./wdio.cucumber.conf');
 
 // For running in custom "browser farms" with bespoke Selenium Grid solutions
 const capabilities = [
@@ -14,4 +14,4 @@ exports.config = Object.assign({
     hostname: process.env.REMOTE_SELENIUM_HOST,
     port: parseInt(process.env.REMOTE_SELENIUM_PORT),
     path: '/wd/hub'
-}, wdioCommon);
+}, wdioCucumber);

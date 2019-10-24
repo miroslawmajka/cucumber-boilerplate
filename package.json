@@ -5,10 +5,11 @@
   "scripts": {
     "lint": "eslint --color .",
     "start": "sample-express-app",
-    "test": "npm run test-chromedriver",
-    "test-chromedriver": "wdio wdio-configs/wdio.chromedriver.conf.js",
-    "test-browserstack": "wdio wdio-configs/wdio.browserstack.conf.js",
-    "test-remote": "wdio wdio-configs/wdio.remote.conf.js"
+    "test": "npm run chromedriver-cucumber",
+    "chromedriver-cucumber": "wdio wdio-configs/wdio.chromedriver.cucumber.conf.js",
+    "browserstack-cucumber": "wdio wdio-configs/wdio.browserstack.cucumber.conf.js",
+    "remote-cucumber": "wdio wdio-configs/wdio.remote.cucumber.conf.js",
+    "chromedriver-mocha": "wdio wdio-configs/wdio.chromedriver.mocha.conf.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "@wdio/cucumber-framework": "^5.15.1",
     "@wdio/junit-reporter": "^5.15.2",
     "@wdio/local-runner": "^5.15.2",
+    "@wdio/mocha-framework": "^5.15.1",
     "@wdio/spec-reporter": "^5.15.2",
     "@wdio/sync": "^5.15.1",
     "browserstack-local": "^1.4.2",

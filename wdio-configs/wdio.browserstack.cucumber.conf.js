@@ -1,7 +1,7 @@
 const browserstackLocal = require('browserstack-local');
 const fs = require('fs');
 
-const wdioCommon = require('./wdio.common.conf');
+const wdioCucumber = require('./wdio.cucumber.conf');
 
 const BROWSERSTACK_ACCESS_KEY = process.env.BROWSERSTACK_ACCESS_KEY;
 const BROWSERSTACK_LOCAL_IDENTIFIER = process.env.BROWSERSTACK_LOCAL_IDENTIFIER;
@@ -60,7 +60,7 @@ const config = Object.assign({
             });
         });
     }
-}, wdioCommon);
+}, wdioCucumber);
 
 // Override "onComplete" from common
 config.onComplete = (exitCode, config, capabilities, results) => {
