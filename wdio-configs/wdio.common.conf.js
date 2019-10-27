@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const HALF_MINUTE = 30000;
 
-module.exports = {
+const wdioCommon = {
     sync: true,
     connectionRetryCount: 3,
     waitforTimeout: HALF_MINUTE / 3,
@@ -20,3 +20,11 @@ module.exports = {
         console.log(`All WebdriverIO workers complete with "${exitCode}" exit code`);
     }
 };
+
+// Used for VS Code debugging, see README.md for sample debug launch configuration
+if (process.env.DEBUG === 'true') {
+    wdioCommon.debug = process.env.DEBUG === 'true',
+    wdioCommon.execArgv = ['--inspect-brk=127.0.0.1:5859'];
+}
+
+module.exports = wdioCommon;
