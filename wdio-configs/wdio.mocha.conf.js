@@ -8,7 +8,7 @@ module.exports = Object.assign({
         timeout: wdioCommon.connectionRetryTimeout * 2
     },
     specs: [
-        './mocha/**/*.js'
+        './wdio-mocha/**/*.js'
     ],
     reporters: [
         'spec',

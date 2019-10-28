@@ -20,6 +20,15 @@ class Page {
 
         return element.getText();
     }
+
+    // Non-WDIO methods
+    async navigateLegacy() {
+        const url = `${process.env.BASE_URL}${this.getPageUrl()}`;
+
+        await driver.get(url); 
+
+        return this;
+    }
 }
 
 module.exports = Page;

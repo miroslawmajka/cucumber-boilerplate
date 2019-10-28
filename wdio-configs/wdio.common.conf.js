@@ -3,6 +3,7 @@ require('dotenv').config();
 const HALF_MINUTE = 30000;
 
 const wdioCommon = {
+    // Use this flag to avoid using async-await constructs or raw Promise objects
     sync: true,
     connectionRetryCount: 3,
     waitforTimeout: HALF_MINUTE / 3,
