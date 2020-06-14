@@ -1,6 +1,6 @@
 {
   "name": "cucumber-boilerplate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cucumber WebdriverIO Boilerplate",
   "scripts": {
     "lint": "eslint --color .",
@@ -18,7 +18,7 @@
   },
   "keywords": [],
   "author": "Miroslaw Majka",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/miroslawmajka/cucumber-boilerplate",
   "devDependencies": {
     "@wdio/allure-reporter": "^5.22.4",

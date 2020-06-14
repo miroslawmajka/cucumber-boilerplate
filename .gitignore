@@ -59,11 +59,9 @@ typings/
 # next.js build output
 .next
 
-# JetBrains and VS Code
+# JetBrains
 .idea
 *.iml
-.vscode
-.vs
 
 output
 test-results
