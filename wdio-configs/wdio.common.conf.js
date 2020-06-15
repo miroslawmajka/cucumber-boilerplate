@@ -24,7 +24,7 @@ const wdioCommon = {
 
 // Used for VS Code debugging, see README.md for sample debug launch configuration
 if (process.env.DEBUG === 'true') {
-    wdioCommon.debug = process.env.DEBUG === 'true',
+    wdioCommon.debug = process.env.DEBUG === 'true';
     wdioCommon.execArgv = ['--inspect-brk=127.0.0.1:5859'];
 }
 
