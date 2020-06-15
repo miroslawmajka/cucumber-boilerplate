@@ -24,43 +24,44 @@ capabilities.forEach(c => {
     c.project = 'Cucumber Boilerplate Project';
 });
 
-const config = Object.assign({
-    capabilities,
-    maxInstances: 1,
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: BROWSERSTACK_ACCESS_KEY,
-    services: [
-        'browserstack'
-    ],
-    onPrepare: (config, capabilities) => {
-        return new Promise((resolve, reject) => {
-            console.log('Connecting to BrowserStack Local Testing...');
+const config = Object.assign(
+    {
+        capabilities,
+        maxInstances: 1,
+        user: process.env.BROWSERSTACK_USERNAME,
+        key: BROWSERSTACK_ACCESS_KEY,
+        services: ['browserstack'],
+        onPrepare: (config, capabilities) => {
+            return new Promise((resolve, reject) => {
+                console.log('Connecting to BrowserStack Local Testing...');
 
-            exports.tunnelInstance = new browserstackLocal.Local();
+                exports.tunnelInstance = new browserstackLocal.Local();
 
-            fs.mkdirSync('./output', { recursive: true });
+                fs.mkdirSync('./output', { recursive: true });
 
-            const opts = {
-                key: BROWSERSTACK_ACCESS_KEY,
-                verbose: true,
-                forceLocal: true,
-                onlyAutomate: true,
-                force: true,
-                logFile: './output/browserstack-local.log',
-                localIdentifier: BROWSERSTACK_LOCAL_IDENTIFIER
-            };
+                const opts = {
+                    key: BROWSERSTACK_ACCESS_KEY,
+                    verbose: true,
+                    forceLocal: true,
+                    onlyAutomate: true,
+                    force: true,
+                    logFile: './output/browserstack-local.log',
+                    localIdentifier: BROWSERSTACK_LOCAL_IDENTIFIER
+                };
 
-            exports.tunnelInstance.start(opts, error => {
-                if (error) return reject(error);
+                exports.tunnelInstance.start(opts, error => {
+                    if (error) return reject(error);
 
-                console.log('Connected to BrowserStack Local Testing');
-                console.log(opts);
+                    console.log('Connected to BrowserStack Local Testing');
+                    console.log(opts);
 
-                resolve();
+                    resolve();
+                });
             });
-        });
-    }
-}, wdioCucumber);
+        }
+    },
+    wdioCucumber
+);
 
 // Override "onComplete" from common
 config.onComplete = (exitCode, config, capabilities, results) => {

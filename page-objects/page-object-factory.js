@@ -3,10 +3,7 @@ const AdditionalSamplesPage = require('./sample-express-app-pages/additional-sam
 
 class PageObjectFactory {
     constructor() {
-        this.pages = [
-            new IndexPage(),
-            new AdditionalSamplesPage()
-        ];
+        this.pages = [new IndexPage(), new AdditionalSamplesPage()];
     }
 
     getPageByName(pageName) {

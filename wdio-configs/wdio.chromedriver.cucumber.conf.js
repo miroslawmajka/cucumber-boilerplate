@@ -8,19 +8,21 @@ const capabilities = [
     }
 ];
 
-if (process.env.HEADLESS_CHROME) capabilities.forEach(c => {
-    c['goog:chromeOptions'] = {
-        args: ['--headless', '--disable-gpu']
-    };
-});
+if (process.env.HEADLESS_CHROME)
+    capabilities.forEach(c => {
+        c['goog:chromeOptions'] = {
+            args: ['--headless', '--disable-gpu']
+        };
+    });
 
-exports.config = Object.assign({
-    capabilities,
-    maxInstances: 1,
-    path: '/',
-    runner: 'local',
-    chromeDriverLogs: './output',
-    services: [
-        'chromedriver'
-    ]
-}, wdioCucumber);
+exports.config = Object.assign(
+    {
+        capabilities,
+        maxInstances: 1,
+        path: '/',
+        runner: 'local',
+        chromeDriverLogs: './output',
+        services: ['chromedriver']
+    },
+    wdioCucumber
+);

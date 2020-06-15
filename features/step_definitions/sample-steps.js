@@ -1,24 +1,22 @@
-/* eslint-disable prefer-arrow-callback */
-
 const { Given, Then, When } = require('cucumber');
 
 const PageObjectFactory = require('../../page-objects/page-object-factory');
 
 const pageObjectFactory = new PageObjectFactory();
 
-Given(/^The "([^"]*)" page is opened$/, function(pageName) {
+Given(/^The "([^"]*)" page is opened$/, function (pageName) {
     const page = pageObjectFactory.getPageByName(pageName);
 
     this.scenarioContext.page = page.navigate();
 });
 
-When(/^I get the text value of the sample element$/, function() {
+When(/^I get the text value of the sample element$/, function () {
     const page = this.scenarioContext.page;
 
     this.scenarioContext.textElementValue = page.getSampleElementText();
 });
 
-Then(/^The expected text value equals "([^"]*)"$/, function(expectedValue) {
+Then(/^The expected text value equals "([^"]*)"$/, function (expectedValue) {
     const textElementValue = this.scenarioContext.textElementValue;
 
     should.exist(textElementValue);
@@ -26,13 +24,13 @@ Then(/^The expected text value equals "([^"]*)"$/, function(expectedValue) {
     textElementValue.should.equal(expectedValue);
 });
 
-When(/^I click on the show more text button$/, function() {
+When(/^I click on the show more text button$/, function () {
     const page = this.scenarioContext.page;
 
     page.clickMoreTextButton();
 });
 
-Then(/^The more text eventually appears$/, function() {
+Then(/^The more text eventually appears$/, function () {
     const page = this.scenarioContext.page;
 
     const moreText = page.waitForMoreText();
@@ -41,7 +39,7 @@ Then(/^The more text eventually appears$/, function() {
     moreText.should.be.a('string');
 });
 
-When(/^I click on the iframe submit button$/, function() {
+When(/^I click on the iframe submit button$/, function () {
     const page = this.scenarioContext.page;
 
     this.scenarioContext.frameCurrentValue = page.getFrameCurrentValue();
@@ -49,7 +47,7 @@ When(/^I click on the iframe submit button$/, function() {
     page.clickSubmitInFrame();
 });
 
-Then(/^The iframe refreshes with a new value$/, function() {
+Then(/^The iframe refreshes with a new value$/, function () {
     const page = this.scenarioContext.page;
     const framePreviousValue = this.scenarioContext.frameCurrentValue;
 
@@ -59,7 +57,7 @@ Then(/^The iframe refreshes with a new value$/, function() {
     frameCurrentValue.should.not.equal(framePreviousValue);
 });
 
-When(/^I click the "([^"]*)" top navigation link$/, function(linkName) {
+When(/^I click the "([^"]*)" top navigation link$/, function (linkName) {
     const page = this.scenarioContext.page;
 
     const topNavigationMap = [

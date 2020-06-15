@@ -7,9 +7,9 @@ class Page {
     }
 
     // Template methods
-    getPageName() { }
-    getPageUrl() { }
-    getSampleElementSelector() { }
+    getPageName() {}
+    getPageUrl() {}
+    getSampleElementSelector() {}
 
     // Very generic function for getting a text in an element designated by a selector
     getSampleElementText() {
@@ -25,7 +25,7 @@ class Page {
     async navigateLegacy() {
         const url = `${process.env.BASE_URL}${this.getPageUrl()}`;
 
-        await driver.get(url); 
+        await driver.get(url);
 
         return this;
     }

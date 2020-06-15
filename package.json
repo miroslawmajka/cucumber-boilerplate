@@ -12,6 +12,7 @@
     "keywords": [
         "webdriverio",
         "bdd",
+        "cucumber",
         "mocha",
         "selenium"
     ],
@@ -22,8 +23,7 @@
         "chromedriver-cucumber": "wdio wdio-configs/wdio.chromedriver.cucumber.conf.js",
         "browserstack-cucumber": "wdio wdio-configs/wdio.browserstack.cucumber.conf.js",
         "remote-cucumber": "wdio wdio-configs/wdio.remote.cucumber.conf.js",
-        "chromedriver-mocha": "wdio wdio-configs/wdio.chromedriver.mocha.conf.js",
-        "pre-wdio-mocha": "mocha pre-wdio-mocha --opts pre-wdio-mocha/mocha.opts"
+        "chromedriver-mocha": "wdio wdio-configs/wdio.chromedriver.mocha.conf.js"
     },
     "devDependencies": {
         "@wdio/allure-reporter": "^5.22.4",

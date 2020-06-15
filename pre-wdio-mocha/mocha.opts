@@ -1,6 +1,0 @@
-# mocha.opts
---color
---reporter spec
---ui bdd
---timeout 60000
---recursive

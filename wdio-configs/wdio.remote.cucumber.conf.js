@@ -8,10 +8,13 @@ const capabilities = [
     }
 ];
 
-exports.config = Object.assign({
-    capabilities,
-    maxInstances: 1,
-    hostname: process.env.REMOTE_SELENIUM_HOST,
-    port: parseInt(process.env.REMOTE_SELENIUM_PORT),
-    path: '/wd/hub'
-}, wdioCucumber);
+exports.config = Object.assign(
+    {
+        capabilities,
+        maxInstances: 1,
+        hostname: process.env.REMOTE_SELENIUM_HOST,
+        port: parseInt(process.env.REMOTE_SELENIUM_PORT),
+        path: '/wd/hub'
+    },
+    wdioCucumber
+);
