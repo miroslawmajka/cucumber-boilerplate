@@ -23,7 +23,7 @@ module.exports = Object.assign(
                 }
             ]
         ],
-        afterTest: function (test, context, { error, result, duration, passed }) {
+        afterTest: (test, context, { error, result, duration, passed }) => {
             if (!passed) {
                 postTestArtifact.takeScreenshot(browser);
                 postTestArtifact.savePageSource(browser);
