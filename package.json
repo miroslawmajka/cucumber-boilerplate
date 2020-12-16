@@ -1,52 +1,58 @@
 {
-    "name": "cucumber-boilerplate",
-    "version": "1.0.3",
-    "description": "Cucumber WebdriverIO Boilerplate",
-    "author": "Miroslaw Majka",
-    "license": "MIT",
-    "homepage": "https://github.com/miroslawmajka/cucumber-boilerplate",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/miroslawmajka/cucumber-boilerplate"
-    },
-    "keywords": [
-        "webdriverio",
-        "bdd",
-        "cucumber",
-        "mocha",
-        "selenium"
-    ],
-    "scripts": {
-        "lint": "eslint --color .",
-        "start": "sample-express-app",
-        "test": "npm run chromedriver-cucumber",
-        "chromedriver-cucumber": "wdio wdio-configs/wdio.chromedriver.cucumber.conf.js",
-        "browserstack-cucumber": "wdio wdio-configs/wdio.browserstack.cucumber.conf.js",
-        "remote-cucumber": "wdio wdio-configs/wdio.remote.cucumber.conf.js",
-        "chromedriver-mocha": "wdio wdio-configs/wdio.chromedriver.mocha.conf.js"
-    },
-    "devDependencies": {
-        "@wdio/allure-reporter": "^5.22.4",
-        "@wdio/browserstack-service": "^5.22.1",
-        "@wdio/cli": "^5.23.0",
-        "@wdio/cucumber-framework": "^5.23.0",
-        "@wdio/junit-reporter": "^5.22.4",
-        "@wdio/local-runner": "^5.23.0",
-        "@wdio/mocha-framework": "^5.23.0",
-        "@wdio/spec-reporter": "^5.23.0",
-        "@wdio/sync": "^5.23.0",
-        "browserstack-local": "^1.4.7",
-        "chai": "^4.2.0",
-        "chromedriver": "^85.0.0",
-        "cucumber": "^5.1.0",
-        "dotenv": "^8.2.0",
-        "eslint": "^6.8.0",
-        "mocha": "^6.2.3",
-        "moment": "^2.27.0",
-        "wdio-chromedriver-service": "^5.0.2",
-        "webdriverio": "^5.23.0"
-    },
-    "dependencies": {
-        "sample-express-app": "^1.0.6"
-    }
+  "name": "cucumber-boilerplate",
+  "version": "1.0.3",
+  "description": "Cucumber WebdriverIO Boilerplate",
+  "author": "Miroslaw Majka",
+  "license": "MIT",
+  "homepage": "https://github.com/miroslawmajka/cucumber-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miroslawmajka/cucumber-boilerplate"
+  },
+  "keywords": [
+    "webdriverio",
+    "bdd",
+    "cucumber",
+    "mocha",
+    "selenium"
+  ],
+  "scripts": {
+    "lint": "eslint --color .",
+    "start": "node src/bin/www",
+    "test": "npm run chromedriver-cucumber",
+    "chromedriver-cucumber": "wdio wdio-configs/wdio.chromedriver.cucumber.conf.js",
+    "browserstack-cucumber": "wdio wdio-configs/wdio.browserstack.cucumber.conf.js",
+    "remote-cucumber": "wdio wdio-configs/wdio.remote.cucumber.conf.js",
+    "chromedriver-mocha": "wdio wdio-configs/wdio.chromedriver.mocha.conf.js"
+  },
+  "devDependencies": {
+    "@wdio/allure-reporter": "^5.22.4",
+    "@wdio/browserstack-service": "^5.22.1",
+    "@wdio/cli": "^5.23.0",
+    "@wdio/cucumber-framework": "^5.23.0",
+    "@wdio/junit-reporter": "^5.22.4",
+    "@wdio/local-runner": "^5.23.0",
+    "@wdio/mocha-framework": "^5.23.0",
+    "@wdio/spec-reporter": "^5.23.0",
+    "@wdio/sync": "^5.23.0",
+    "browserstack-local": "^1.4.8",
+    "chai": "^4.2.0",
+    "chromedriver": "^87.0.4",
+    "cucumber": "^5.1.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^6.2.3",
+    "moment": "^2.29.1",
+    "wdio-chromedriver-service": "^5.0.2",
+    "webdriverio": "^5.23.0"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "hbs": "^4.1.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
+  }
 }

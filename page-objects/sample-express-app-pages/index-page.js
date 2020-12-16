@@ -1,81 +1,81 @@
 const SampleExpressAppPage = require('./sample-express-app-page');
 
 class IndexPage extends SampleExpressAppPage {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.moreTextButtonSelector = '#btnShowMoreText';
-        this.loadingSelector = '#pLoading';
-        this.moreTextSelector = '#pMoreText';
-        this.frameSelector = '#frame';
-        this.frameSubmitButtonSelector = '#submitFrame';
-        this.frameCurrentValueSelector = '#frameCurrentValue';
-    }
+    this.moreTextButtonSelector = '#btnShowMoreText';
+    this.loadingSelector = '#pLoading';
+    this.moreTextSelector = '#pMoreText';
+    this.frameSelector = '#frame';
+    this.frameSubmitButtonSelector = '#submitFrame';
+    this.frameCurrentValueSelector = '#frameCurrentValue';
+  }
 
-    getPageName() {
-        return 'sample-express-app-index';
-    }
+  getPageName() {
+    return 'sample-express-app-index';
+  }
 
-    getPageUrl() {
-        return '/';
-    }
+  getPageUrl() {
+    return '/';
+  }
 
-    getSampleElementSelector() {
-        return '#pWelcome';
-    }
+  getSampleElementSelector() {
+    return '#pWelcome';
+  }
 
-    clickMoreTextButton() {
-        const moreTextButton = $(this.moreTextButtonSelector);
+  clickMoreTextButton() {
+    const moreTextButton = $(this.moreTextButtonSelector);
 
-        moreTextButton.waitForExist();
-        moreTextButton.waitForDisplayed();
-        moreTextButton.waitForEnabled();
+    moreTextButton.waitForExist();
+    moreTextButton.waitForDisplayed();
+    moreTextButton.waitForEnabled();
 
-        moreTextButton.click();
-    }
+    moreTextButton.click();
+  }
 
-    waitForMoreText() {
-        const loading = $(this.loadingSelector);
-        const moreText = $(this.moreTextSelector);
+  waitForMoreText() {
+    const loading = $(this.loadingSelector);
+    const moreText = $(this.moreTextSelector);
 
-        loading.waitForExist();
-        loading.waitForDisplayed();
-        loading.waitForDisplayed(5000, true);
-        moreText.waitForExist();
-        moreText.waitForDisplayed(5000);
+    loading.waitForExist();
+    loading.waitForDisplayed();
+    loading.waitForDisplayed(5000, true);
+    moreText.waitForExist();
+    moreText.waitForDisplayed(5000);
 
-        return moreText.getText();
-    }
+    return moreText.getText();
+  }
 
-    clickSubmitInFrame() {
-        this.switchToFrame();
+  clickSubmitInFrame() {
+    this.switchToFrame();
 
-        const submitButton = $(this.frameSubmitButtonSelector);
-        submitButton.click();
-    }
+    const submitButton = $(this.frameSubmitButtonSelector);
+    submitButton.click();
+  }
 
-    getFrameCurrentValue(shouldExist) {
-        this.switchToFrame();
+  getFrameCurrentValue(shouldExist) {
+    this.switchToFrame();
 
-        const frameCurrentValue = $(this.frameCurrentValueSelector);
+    const frameCurrentValue = $(this.frameCurrentValueSelector);
 
-        // Encountered problem when running tests across Selenium Grid/Node with getText() not waiting for iframe to load
-        const submitButton = $(this.frameSubmitButtonSelector);
-        submitButton.waitForExist();
-        submitButton.waitForDisplayed();
-        submitButton.waitForEnabled();
+    // Encountered problem when running tests across Selenium Grid/Node with getText() not waiting for iframe to load
+    const submitButton = $(this.frameSubmitButtonSelector);
+    submitButton.waitForExist();
+    submitButton.waitForDisplayed();
+    submitButton.waitForEnabled();
 
-        return frameCurrentValue.getText();
-    }
+    return frameCurrentValue.getText();
+  }
 
-    switchToFrame() {
-        // Set to main window first
-        browser.switchToFrame(null);
+  switchToFrame() {
+    // Set to main window first
+    browser.switchToFrame(null);
 
-        // From main window selector the iframe
-        const frame = $(this.frameSelector);
-        browser.switchToFrame(frame);
-    }
+    // From main window selector the iframe
+    const frame = $(this.frameSelector);
+    browser.switchToFrame(frame);
+  }
 }
 
 module.exports = IndexPage;

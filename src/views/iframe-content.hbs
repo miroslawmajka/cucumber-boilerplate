@@ -1,0 +1,28 @@
+<style type="text/css">
+    body {
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        background-color: khaki;
+    }
+</style>
+
+<h3>Frame Content</h3>
+
+<form action="/iframe-content"
+      method="GET"
+      onSubmit="document.getElementById('submitFrame').disabled=true;">
+
+    <input type="hidden" name="sampleParam" id="sampleParam" />
+    <input type="submit" value="Submit" id="submitFrame" />
+
+    <p id="frameCurrentValue">{{sampleParam}}</p>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+
+<script>
+    $(() => {
+        $('#sampleParam').val(Date.now());
+    });
+</script>
