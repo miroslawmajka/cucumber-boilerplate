@@ -7,7 +7,7 @@ Circle CI Build Status: [![CircleCI](https://circleci.com/gh/miroslawmajka/cucum
 Functionalities Covered:
 
 * WebdriverIO (https://webdriver.io/)
-* Cucumber.js / Gherking / BDD (https://cucumber.io/docs/installation/javascript/)
+* Cucumber.js / Gherkin / BDD (https://cucumber.io/docs/installation/javascript/)
 * Chromedriver / Local Testing (https://sites.google.com/a/chromium.org/chromedriver/)
 * Selenium Grid / Remote Testing (https://www.seleniumhq.org/docs/07_selenium_grid.jsp)
 * BrowserStack / Cloud Testng (https://www.browserstack.com/automate/webdriverio)
