@@ -5,13 +5,13 @@ const pageObjectFactory = new PageObjectFactory();
 describe('Online Shopper payments and available items', function () {
   let page = null;
 
-  beforeEach(async function () {
+  beforeEach(function () {
     page = pageObjectFactory.getPageByName('payment-page-id');
-    await page.navigate();
+    page.navigate();
   });
 
-  it('Verifying that the page welcome header contains the expected text', async function () {
-    const textElementValue = await page.getWelcomeHeaderText();
+  it('Verifying that the page welcome header contains the expected text', function () {
+    const textElementValue = page.getWelcomeHeaderText();
 
     should.exist(textElementValue);
     textElementValue.should.equal('Welcome to Online Shopper - Payment Page');
@@ -49,7 +49,7 @@ describe('Online Shopper payments and available items', function () {
     should.exist(textElementValue);
     textElementValue.should.equal('Welcome to Online Shopper - Payment Page');
 
-    page = page.clickTopNavigationAdditionalSamples();
+    page = page.clickTopNavigationAvailableItems();
 
     textElementValue = page.getWelcomeHeaderText();
     should.exist(textElementValue);

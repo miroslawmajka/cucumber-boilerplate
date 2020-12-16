@@ -23,10 +23,10 @@ module.exports = Object.assign(
         },
       ],
     ],
-    afterTest: async (test, context, { error, result, duration, passed }) => {
+    afterTest: (test, context, { error, result, duration, passed }) => {
       if (!passed) {
-        await postTestArtifact.takeScreenshot(browser);
-        await postTestArtifact.savePageSource(browser);
+        postTestArtifact.takeScreenshot(browser);
+        postTestArtifact.savePageSource(browser);
       }
     },
   },

@@ -8,21 +8,21 @@ class OnlineShopperPage extends Page {
     this.additionalSamplesAnchorSelector = 'body > ul:nth-child(1) > li:nth-child(2) > a';
   }
 
-  async clickTopNavigationPaymentPage() {
-    return await this.clickTopNavigationAnchor(this.indexAnchorSelector);
+  clickTopNavigationPaymentPage() {
+    return this.clickTopNavigationAnchor(this.indexAnchorSelector);
   }
 
-  async clickTopNavigationAdditionalSamples() {
-    return await this.clickTopNavigationAnchor(this.additionalSamplesAnchorSelector);
+  clickTopNavigationAvailableItems() {
+    return this.clickTopNavigationAnchor(this.additionalSamplesAnchorSelector);
   }
 
-  async clickTopNavigationAnchor(selector) {
+  clickTopNavigationAnchor(selector) {
     const additionalSamplesAnchor = $(selector);
 
-    await additionalSamplesAnchor.waitForExist();
-    await additionalSamplesAnchor.waitForDisplayed();
+    additionalSamplesAnchor.waitForExist();
+    additionalSamplesAnchor.waitForDisplayed();
 
-    await additionalSamplesAnchor.click();
+    additionalSamplesAnchor.click();
 
     return this;
   }

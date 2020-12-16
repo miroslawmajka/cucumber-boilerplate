@@ -24,57 +24,57 @@ class PaymentPage extends OnlineShopperPage {
     return '#pWelcome';
   }
 
-  async clickMoreTextButton() {
+  clickMoreTextButton() {
     const moreTextButton = $(this.moreTextButtonSelector);
 
-    await moreTextButton.waitForExist();
-    await moreTextButton.waitForDisplayed();
-    await moreTextButton.waitForEnabled();
+    moreTextButton.waitForExist();
+    moreTextButton.waitForDisplayed();
+    moreTextButton.waitForEnabled();
 
-    await moreTextButton.click();
+    moreTextButton.click();
   }
 
-  async waitForMoreText() {
+  waitForMoreText() {
     const loading = $(this.loadingSelector);
     const moreText = $(this.moreTextSelector);
 
-    await loading.waitForExist();
-    await loading.waitForDisplayed();
-    await loading.waitForDisplayed(5000, true);
-    await moreText.waitForExist();
-    await moreText.waitForDisplayed(5000);
+    loading.waitForExist();
+    loading.waitForDisplayed();
+    loading.waitForDisplayed(5000, true);
+    moreText.waitForExist();
+    moreText.waitForDisplayed(5000);
 
-    return await moreText.getText();
+    return moreText.getText();
   }
 
-  async clickSubmitInFrame() {
+  clickSubmitInFrame() {
     this.switchToFrame();
 
     const submitButton = $(this.frameSubmitButtonSelector);
-    await submitButton.click();
+    submitButton.click();
   }
 
-  async getFrameCurrentValue() {
-    await this.switchToFrame();
+  getFrameCurrentValue() {
+    this.switchToFrame();
 
     const frameCurrentValue = $(this.frameCurrentValueSelector);
 
     // Encountered problem when running tests across Selenium Grid/Node with getText() not waiting for iframe to load
     const submitButton = $(this.frameSubmitButtonSelector);
-    await submitButton.waitForExist();
-    await submitButton.waitForDisplayed();
-    await submitButton.waitForEnabled();
+    submitButton.waitForExist();
+    submitButton.waitForDisplayed();
+    submitButton.waitForEnabled();
 
-    return await frameCurrentValue.getText();
+    return frameCurrentValue.getText();
   }
 
-  async switchToFrame() {
+  switchToFrame() {
     // Set to main window first
-    await browser.switchToFrame(null);
+    browser.switchToFrame(null);
 
     // From main window selector the iframe
     const frame = $(this.frameSelector);
-    await browser.switchToFrame(frame);
+    browser.switchToFrame(frame);
   }
 }
 

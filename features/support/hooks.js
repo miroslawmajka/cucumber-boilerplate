@@ -4,9 +4,9 @@ const postTestArtifact = require('../../utils/post-test-artifact');
 
 const FAILED_STATUS = 'failed';
 
-After(async (scenario) => {
+After((scenario) => {
   if (scenario.result.status === FAILED_STATUS) {
-    await postTestArtifact.takeScreenshot(browser);
-    await postTestArtifact.savePageSource(browser);
+    postTestArtifact.takeScreenshot(browser);
+    postTestArtifact.savePageSource(browser);
   }
 });
