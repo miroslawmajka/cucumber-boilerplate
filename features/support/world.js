@@ -2,7 +2,7 @@ const { setWorldConstructor } = require('cucumber');
 
 class CustomWorld {
   constructor() {
-    this.scenarioContext = {};
+    this.context = {};
   }
 }
 

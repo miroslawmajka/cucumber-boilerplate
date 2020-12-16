@@ -22,6 +22,9 @@ Webdriver Protocol: https://webdriver.io/docs/api/webdriver.html
 
 Open your favourite CLI, like Git Bash in Windows and run the following commands:
 ```shell script
+# Create .env file with the BASE_URL
+echo "BASE_URL=http://localhost:3000" > .env
+
 # Installs dependencies
 npm install
 
@@ -48,8 +51,6 @@ The "Sample Express App" is a standalone Node.js Express web application running
 The views served by that application provide simple AJAX-like interaction and also an embedded iframe.
 
 The Gherkin test scenarios in the [sample-cucumber.feature](features/sample-cucumber.feature) file rely on this application running in the background.
-
-The application is available at https://github.com/miroslawmajka/sample-express-app.
 
 # Debugging
 

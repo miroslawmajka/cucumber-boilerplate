@@ -1,6 +1,6 @@
 class Page {
-  navigate() {
-    browser.url(this.getPageUrl());
+  async navigate() {
+    await browser.url(this.getPageUrl());
 
     // Easy method chaining for Selenium actions
     return this;
@@ -9,16 +9,16 @@ class Page {
   // Template methods
   getPageName() {}
   getPageUrl() {}
-  getSampleElementSelector() {}
+  getWelcomeHeaderSelector() {}
 
   // Very generic function for getting a text in an element designated by a selector
-  getSampleElementText() {
-    const element = $(this.getSampleElementSelector());
+  async getWelcomeHeaderText() {
+    const welcomeHeader = $(this.getWelcomeHeaderSelector());
 
-    element.waitForExist(undefined);
-    element.waitForDisplayed(undefined);
+    await welcomeHeader.waitForExist(undefined);
+    await welcomeHeader.waitForDisplayed(undefined);
 
-    return element.getText();
+    return await welcomeHeader.getText();
   }
 
   // Non-WDIO methods

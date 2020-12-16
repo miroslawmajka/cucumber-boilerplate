@@ -5,24 +5,21 @@
     }
 </style>
 
-<h3>Frame Content</h3>
+<h3>Payment</h3>
 
-<form action="/iframe-content"
-      method="GET"
-      onSubmit="document.getElementById('submitFrame').disabled=true;">
+<form action="/iframe-content" method="GET" onSubmit="document.getElementById('submitFrame').disabled=true;">
 
     <input type="hidden" name="sampleParam" id="sampleParam" />
-    <input type="submit" value="Submit" id="submitFrame" />
+    <input type="submit" value="Pay for Items" id="submitFrame" />
 
     <p id="frameCurrentValue">{{sampleParam}}</p>
 </form>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-        crossorigin="anonymous"></script>
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 
 <script>
     $(() => {
-        $('#sampleParam').val(Date.now());
+        $('#sampleParam').val(`Paid on ${new Date(Date.now()).toUTCString()}`);
     });
 </script>

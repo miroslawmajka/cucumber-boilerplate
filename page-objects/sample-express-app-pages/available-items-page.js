@@ -1,6 +1,6 @@
-const SampleExpressAppPage = require('./sample-express-app-page');
+const SampleExpressAppPage = require('./online-shopper-page');
 
-class AdditionalSamplesPage extends SampleExpressAppPage {
+class AvailableItemsPage extends SampleExpressAppPage {
   constructor() {
     super();
   }
@@ -13,9 +13,9 @@ class AdditionalSamplesPage extends SampleExpressAppPage {
     return '/additional-samples';
   }
 
-  getSampleElementSelector() {
+  getWelcomeHeaderSelector() {
     return '#pWelcome';
   }
 }
 
-module.exports = AdditionalSamplesPage;
+module.exports = AvailableItemsPage;

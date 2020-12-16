@@ -4,70 +4,70 @@ const PageObjectFactory = require('../../page-objects/page-object-factory');
 
 const pageObjectFactory = new PageObjectFactory();
 
-Given(/^The "([^"]*)" page is opened$/, function (pageName) {
+Given(/^The "([^"]*)" page is opened$/, async function (pageName) {
   const page = pageObjectFactory.getPageByName(pageName);
 
-  this.scenarioContext.page = page.navigate();
+  this.context.page = await page.navigate();
 });
 
-When(/^I get the text value of the sample element$/, function () {
-  const page = this.scenarioContext.page;
+When(/^I get the text value of the page welcome header$/, async function () {
+  const page = this.context.page;
 
-  this.scenarioContext.textElementValue = page.getSampleElementText();
+  this.context.textElementValue = await page.getWelcomeHeaderText();
 });
 
-Then(/^The expected text value equals "([^"]*)"$/, function (expectedValue) {
-  const textElementValue = this.scenarioContext.textElementValue;
+Then(/^The expected header text value equals "([^"]*)"$/, function (expectedValue) {
+  const textElementValue = this.context.textElementValue;
 
   should.exist(textElementValue);
 
   textElementValue.should.equal(expectedValue);
 });
 
-When(/^I click on the show more text button$/, function () {
-  const page = this.scenarioContext.page;
+When(/^I click to show payment details button$/, async function () {
+  const page = this.context.page;
 
-  page.clickMoreTextButton();
+  await page.clickMoreTextButton();
 });
 
-Then(/^The more text eventually appears$/, function () {
-  const page = this.scenarioContext.page;
+Then(/^The payment details are revealed$/, async function () {
+  const page = this.context.page;
 
-  const moreText = page.waitForMoreText();
+  const moreText = await page.waitForMoreText();
 
   should.exist(moreText);
   moreText.should.be.a('string');
 });
 
-When(/^I click on the iframe submit button$/, function () {
-  const page = this.scenarioContext.page;
+When(/^I click on the Pay for Items button$/, async function () {
+  const page = this.context.page;
 
-  this.scenarioContext.frameCurrentValue = page.getFrameCurrentValue();
+  this.context.frameCurrentValue = await page.getFrameCurrentValue();
 
-  page.clickSubmitInFrame();
+  await page.clickSubmitInFrame();
 });
 
-Then(/^The iframe refreshes with a new value$/, function () {
-  const page = this.scenarioContext.page;
-  const framePreviousValue = this.scenarioContext.frameCurrentValue;
+Then(/^The payment time text appears with a new value$/, async function () {
+  const page = this.context.page;
+  const framePreviousValue = this.context.frameCurrentValue;
 
-  const frameCurrentValue = page.getFrameCurrentValue();
+  const frameCurrentValue = await page.getFrameCurrentValue();
 
   should.exist(frameCurrentValue);
   frameCurrentValue.should.not.equal(framePreviousValue);
 });
 
-When(/^I click the "([^"]*)" top navigation link$/, function (linkName) {
-  const page = this.scenarioContext.page;
+When(/^I click the "([^"]*)" top navigation link$/, async function (linkName) {
+  const page = this.context.page;
 
   const topNavigationMap = [
     {
       linkName: 'Index',
-      clickAction: () => page.clickTopNavigationIndex(),
+      clickAction: async () => await page.clickTopNavigationPaymentPage(),
     },
     {
       linkName: 'Additional Samples',
-      clickAction: () => page.clickTopNavigationAdditionalSamples(),
+      clickAction: async () => await page.clickTopNavigationAdditionalSamples(),
     },
   ];
 
@@ -75,5 +75,5 @@ When(/^I click the "([^"]*)" top navigation link$/, function (linkName) {
 
   if (!topNavigationTarget) throw new Error(`Link "${linkName}" is not mapped`);
 
-  this.scenarioContext.page = topNavigationTarget.clickAction();
+  this.context.page = await topNavigationTarget.clickAction();
 });

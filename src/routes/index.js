@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const TITLE = { title: 'Sample Express Web Application' };
+const TITLE = { title: 'Online Shopper' };
 
 /* GET home page */
 router.get('/', (req, res, next) => {
