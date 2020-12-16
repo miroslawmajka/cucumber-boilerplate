@@ -13,15 +13,15 @@ Given(/^The "([^"]*)" page is opened$/, async function (pageName) {
 When(/^I get the text value of the page welcome header$/, async function () {
   const page = this.context.page;
 
-  this.context.textElementValue = await page.getWelcomeHeaderText();
+  this.context.welcomeHeaderText = await page.getWelcomeHeaderText();
 });
 
 Then(/^The expected header text value equals "([^"]*)"$/, function (expectedValue) {
-  const textElementValue = this.context.textElementValue;
+  const welcomeHeaderText = this.context.welcomeHeaderText;
 
-  should.exist(textElementValue);
+  should.exist(welcomeHeaderText);
 
-  textElementValue.should.equal(expectedValue);
+  welcomeHeaderText.should.equal(expectedValue);
 });
 
 When(/^I click to show payment details button$/, async function () {
