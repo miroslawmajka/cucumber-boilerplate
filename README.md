@@ -14,9 +14,15 @@ Functionalities Covered:
 
 Instead of using vanilla Node.js automated browser testing frameworks from scratch you can utilize a very handy set of orchestration libraries called "WebdriverIO" which bring together all those tools in a unified testing package. These libraries can be installed independently and used via "wdio.conf.js" files as entry points.
 
-WebdriverIO API (ver. 5): https://webdriver.io/docs/api.html
+WebdriverIO API (ver. 6): https://webdriver.io/docs/api.html
 
 Webdriver Protocol: https://webdriver.io/docs/api/webdriver.html
+
+# Requirements
+
+- Node 14
+- `npm install -g windows-build-tools`
+- `npm install -g node-gyp`
 
 # Simple Usage
 
