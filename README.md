@@ -1,8 +1,6 @@
 # Cucumber Boilerplate
 
-Node.js WebdriverIO Cucumber Boilerplate
-
-Circle CI Build Status: [![CircleCI](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate.svg?style=svg)](https://circleci.com/gh/miroslawmajka/cucumber-boilerplate)
+Node.js WebdriverIO Selenium Cucumber Boilerplate
 
 Functionalities Covered:
 
@@ -10,28 +8,34 @@ Functionalities Covered:
 * Cucumber.js / Gherkin / BDD (https://cucumber.io/docs/installation/javascript/)
 * Chromedriver / Local Testing (https://sites.google.com/a/chromium.org/chromedriver/)
 * Selenium Grid / Remote Testing (https://www.seleniumhq.org/docs/07_selenium_grid.jsp)
-* BrowserStack / Cloud Testng (https://www.browserstack.com/automate/webdriverio)
+* BrowserStack / Cloud Testing (https://www.browserstack.com/automate/webdriverio)
 
 # WebdriverIO
 
-Instead of using vanilla Node.js automated browser testing framworks from scratch you can utilize a very handy set of orchestration libraries called "WebdriverIO" which bring together all those tools in a unified testing package. These libraries can be installed independently and used via "wdio.conf.js" files as entry points.
+Instead of using vanilla Node.js automated browser testing frameworks from scratch you can utilize a very handy set of orchestration libraries called "WebdriverIO" which bring together all those tools in a unified testing package. These libraries can be installed independently and used via "wdio.conf.js" files as entry points.
 
-WebdriverIO API (ver. 5): https://webdriver.io/docs/api.html
+WebdriverIO API (ver. 6): https://webdriver.io/docs/api.html
 
 Webdriver Protocol: https://webdriver.io/docs/api/webdriver.html
+
+# Requirements
+
+- Node 14
+- `npm install -g windows-build-tools`
+- `npm install -g node-gyp`
 
 # Simple Usage
 
 Open your favourite CLI, like Git Bash in Windows and run the following commands:
 ```shell script
-# Install "Sample Express App"
-npm install -g sample-express-app
-
-# Run "Sample Express App" in the background
-sample-express-app > express.log &
+# Create .env file with the BASE_URL
+echo "BASE_URL=http://localhost:3000" > .env
 
 # Installs dependencies
 npm install
+
+# Run "Online Shopper" application in the background
+npm start > express.log &
 
 # Lints the JavaScript
 npm run lint
@@ -42,19 +46,17 @@ npm test
 
 Please see the specific `package.json` scripts and the `wdio-configs`
 for details about running the tests locally using Chromedriver (with GUI or not) or
-by delegating the testing effor to BrowserStack.
+by delegating the testing effort to BrowserStack.
 
-# Sample Express App
+# Online Shopper
 
-The "Sample Express App" is a standalone Node.js Express web application running at http://localhost:3000 that can be tested using Selenium. Sample screenshot below.
+The "Online Shopper" app is a standalone Node.js Express web application running at http://localhost:3000 that can be tested using Selenium. Sample screenshot below.
 
-![SampleExpressAppScreen](docs/sample-express-app.png "Sample Express App")
+![OnlineShopperScreenshot](docs/online-shopper-app.png "Online Shopper")
 
-The views served by that application provide simple AJAX-like interaction and also an embedded iframe.
+The views served by that application provide simple AJAX-like interaction and also an embedded `iframe`.
 
-The Gherking test scenarios in the [sample-cucumber.feature](features/sample-cucumber.feature) file rely on this application running in the background.
-
-The application is available at https://github.com/miroslawmajka/sample-express-app.
+The Gherkin test scenarios in the [online-shopper-payments-etc.feature](features/online-shopper-payments-etc.feature) file rely on this application running in the background.
 
 # Debugging
 
@@ -84,5 +86,5 @@ For debugging in VS Code (https://code.visualstudio.com/) you can use the follow
     ]
 }
 ```
-This specific one will start debuging the `chromedriver-cucumber` task. 
+This specific one will start debugging the `chromedriver-cucumber` task. 
 To use a different one defined in `package.json` you need to change the `runtimeArgs` second array value.
