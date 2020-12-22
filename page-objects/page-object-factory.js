@@ -1,18 +1,18 @@
-const IndexPage = require('./sample-express-app-pages/index-page');
-const AdditionalSamplesPage = require('./sample-express-app-pages/additional-samples-page');
+const PaymentPage = require('./sample-express-app-pages/payment-page');
+const AvailableItemsPage = require('./sample-express-app-pages/available-items-page');
 
 class PageObjectFactory {
-    constructor() {
-        this.pages = [new IndexPage(), new AdditionalSamplesPage()];
-    }
+  constructor() {
+    this.pages = [new PaymentPage(), new AvailableItemsPage()];
+  }
 
-    getPageByName(pageName) {
-        const page = this.pages.find(e => e.getPageName() === pageName);
+  getPageByName(pageName) {
+    const page = this.pages.find((e) => e.getPageName() === pageName);
 
-        if (!page) throw new Error(`Page "${pageName}" not found in factory`);
+    if (!page) throw new Error(`Page "${pageName}" not found in factory`);
 
-        return page;
-    }
+    return page;
+  }
 }
 
 module.exports = PageObjectFactory;

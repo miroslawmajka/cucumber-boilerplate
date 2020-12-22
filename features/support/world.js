@@ -1,9 +1,9 @@
 const { setWorldConstructor } = require('cucumber');
 
 class CustomWorld {
-    constructor() {
-        this.scenarioContext = {};
-    }
+  constructor() {
+    this.context = {};
+  }
 }
 
 setWorldConstructor(CustomWorld);
